@@ -1,3 +1,6 @@
+<?php 
+include ("connexion.php")
+?>
 <!doctype html>
 <html >
 
@@ -81,7 +84,7 @@
                         </span>
                     </li>
                     <li>
-                        <a href="dashboard.html"
+                        <a href="dashboard.php"
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 
                             <span class="flex-1 ml-3 whitespace-nowrap">statistique</span>
@@ -94,7 +97,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="inbox.html"
+                        <a href="inbox.php"
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 
                             <span class="flex-1 ml-3 whitespace-nowrap">Inbox</span>
@@ -109,7 +112,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="UsersManagement.html"
+                        <a href="UsersManagement.php"
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 
                             <span class="flex-1 ml-3 whitespace-nowrap">Users Management</span>
@@ -122,7 +125,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="CategoryManagement.html"
+                        <a href="CategoryManagement.php"
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <span class="flex-1 ml-3 whitespace-nowrap">Category Management</span>
                             <svg class="flex-shrink-0 w-5 h-5 text-gray-500  transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -137,7 +140,7 @@
 
                     <li class="bg-white  rounded-lg  ">
 
-                        <a href="sign_in.html"
+                        <a href="sign_in.php"
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
