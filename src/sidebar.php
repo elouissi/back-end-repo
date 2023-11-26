@@ -1,29 +1,12 @@
-<?php 
-include ("connexion.php")
-?>
-<!doctype html>
-<html >
-
-<head>
-    <title>dashboard</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../dist/output.css" rel="stylesheet">
-</head>
-
-
-
-<body class="overflow-x-hidden  dark:bg-gray-900 dark:text-white">
-    <header class="flex py-2 justify-end h-12 px-8   gap-1 dark:bg-gray-800 dark:text-white ">
+<header class="flex py-2  justify-end h-12 px-8   gap-1 dark:bg-gray-800 dark:text-white ">
         <span id="dar_mode_btn">
         <img class="h-8 mx-5  dark:rotate-180  dark:bg-slate-300 dark:rounded-full " src="../images/dar_mode_icon.png" alt="icon">
     </span>
-        <img class="h-auto  rounded-full" src="../images/845-1697015855.jpg" alt="admin">
-        <span class="text-lg self-center ">mohamed tergui</span>
+        <img class="h-auto  rounded-full" src="../images/cardYassine.jpg" alt="admin">
+        <span class="text-lg self-center ">yassine eloussi</span>
     </header>
-    <div class="flex flex-row justify-start py-8">
-
-        <!-- side bar -->
+  <div class="flex flex-row justify-start py-8 dark:bg-gray-900">
+    <!-- side bar -->
     <div class="lg:w-72 sm:h-full h-screen ">
 
         <span id="btn_sidebar" class=" cursor-pointer rounded-full shadow-md fixed lg:hidden top-3/4 -left-2">
@@ -99,12 +82,12 @@ include ("connexion.php")
                         </a>
                     </li>
                     <li>
-                        <a href="inbox.php"
+                        <a href="projects.php"
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 
-                            <span class="flex-1 ml-3 whitespace-nowrap">Inbox</span>
+                            <span class="flex-1 ml-3 whitespace-nowrap">projects</span>
                             <span
-                                class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-xs font-medium text-custom-green bg-red-500 rounded-full mx-3">3</span>
+                                class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-custom-green bg-red-500 rounded-full mx-3">3</span>
                             <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                 viewBox="0 0 20 20">
@@ -114,10 +97,20 @@ include ("connexion.php")
                         </a>
                     </li>
                     <li>
-                        <a href="UsersManagement.php"
+                        <a href="témoignages.php"
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 
-                            <span class="flex-1 ml-3 whitespace-nowrap">Users Management</span>
+                            <span class="flex-1 ml-3 whitespace-nowrap">témoignages</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(137, 134, 134, 1);transform: ;msFilter:;"><path d="M20 1.999H4c-1.103 0-2 .897-2 2v18l4-4h14c1.103 0 2-.897 2-2v-12c0-1.103-.897-2-2-2zm-6 11H7v-2h7v2zm3-4H7v-2h10v2z"></path></svg>
+                            
+                       
+                        </a>
+                    </li>
+                    <li>
+                        <a href="freelances.php"
+                            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+
+                            <span class="flex-1 ml-3 whitespace-nowrap">freelances</span>
                             <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                 viewBox="0 0 20 18">
@@ -168,91 +161,3 @@ include ("connexion.php")
 
 
     </div>
-    <!-- end side bar -->
-
-        <section class="flex-grow lg:w-9/12 flex flex-col gap-14 px-2 ">
-           <h1 class="font-bold text-4xl text-center">Users Management</h1>
-           <div class="flex flex-col text-xs   items-center  border-2 pb-5">
-            <ul class="flex bg-slate-500 dark:bg-slate-800 items-center text-xs sm:text-lg text-white font-bold w-full py-3">
-                <li class="w-2/5 text-center">NAME</li>
-                <li class="w-1/5 text-center">TITLE</li>
-                <li class="w-1/5 text-center">STATUS</li>
-                <li class="w-1/5 text-center">ROLE</li>
-                <li class="w-1/6 text-center">&nbsp;</li>
-            </ul>
-            <ul class=" user flex  text-xs items-center   sm:text-lg w-full py-3">
-                <li class="w-2/5 text-center items-center flex gap-1 px-2">
-                    <img class="w-1/6 rounded-full" src="../images/845-1697015855.jpg" alt="">
-                   <span> mohamed tergui</span>
-                </li>
-                <li class="w-1/5 text-center">devolopeur</li>
-                <li class="w-1/5 text-center">active</li>
-                <li class="w-1/5 text-center">owner</li>
-                <li class="w-1/6 text-center flex flex-col sm:flex-row  justify-around"><button  class="text-blue-500 edit_btn">EDIT</button> <button class="text-red-500 dele_btn">DELE</button></li>
-
-            </ul>
-            <ul class=" user flex  text-xs items-center   sm:text-lg w-full py-3">
-                <li class="w-2/5 text-center items-center flex gap-1 px-2">
-                    <img class="w-1/6 rounded-full" src="../images/845-1697015855.jpg" alt="">
-                   <span> yassine eloussi</span>
-                </li>
-                <li class="w-1/5 text-center">devolopeur</li>
-                <li class="w-1/5 text-center">active</li>
-                <li class="w-1/5 text-center">owner</li>
-                <li class="w-1/6 text-center flex-col sm:flex-row flex justify-around"><button  class="text-blue-500 edit_btn">EDIT</button> <button class="text-red-500 dele_btn">DELE</button></li>
-
-            </ul>
-            <ul class=" user flex  text-xs items-center   sm:text-lg w-full py-3">
-                <li class="w-2/5 text-center items-center flex gap-1 px-2">
-                    <img class="w-1/6 rounded-full" src="../images/845-1697015855.jpg" alt="">
-                   <span> mohamed meassel</span>
-                </li>
-                <li class="w-1/5 text-center">devolopeur</li>
-                <li class="w-1/5 text-center">active</li>
-                <li class="w-1/5 text-center">owner</li>
-                <li class="w-1/6 text-center flex flex-col sm:flex-row justify-around"><button  class="text-blue-500 edit_btn">EDIT</button> <button class="text-red-500 dele_btn">DELE</button></li>
-
-            </ul>
-            <ul class=" user flex  text-xs items-center   sm:text-lg w-full py-3">
-                <li class="w-2/5 text-center items-center flex gap-1 px-2">
-                    <img class="w-1/6 rounded-full" src="../images/845-1697015855.jpg" alt="">
-                   <span>abdelghani ait tamghrat</span>
-                </li>
-                <li class="w-1/5 text-center">devolopeur</li>
-                <li class="w-1/5 text-center">active</li>
-                <li class="w-1/5 text-center">owner</li>
-                <li class="w-1/6 text-center flex flex-col sm:flex-row justify-around"><button  class="text-blue-500 edit_btn">EDIT</button> <button class="text-red-500 dele_btn">DELE</button></li>
-
-            </ul>
-            <ul class=" user flex  text-xs items-center   sm:text-lg w-full py-3">
-                <li class="w-2/5 text-center items-center flex gap-1 px-2">
-                    <img class="w-1/6 rounded-full" src="../images/845-1697015855.jpg" alt="">
-                   <span> nada elmahfodi</span>
-                </li>
-                <li class="w-1/5 text-center ">devolopeur</li>
-                <li class="w-1/5 text-center">active</li>
-                <li class="w-1/5 text-center">owner</li>
-                <li class="w-1/6 text-center flex flex-col sm:flex-row justify-around"><button  class="text-blue-500 edit_btn">EDIT</button> <button class="text-red-500 dele_btn">DELE</button></li>
-
-            </ul>
-            
-             
-            
-             
-             
-           </div>
-        </section>
-    </div>
-
-
-
-    <script src="../javascript/jquery.js"></script>
-    <script src="../javascript/dashboard.js"></script>
-    <script src="../javascript/script.js"></script>
-
-    <script src="../javascript/dashUser.js"></script>
-
-</body>
-
-</html>
-
