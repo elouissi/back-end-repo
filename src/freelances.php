@@ -53,7 +53,7 @@ include ("connexion.php")
             </div>
             <!-- Modal body -->
             <div class=" md:p-5 space-y-4">
-          
+          <form action="">
                 <div>
                          <input type="IdFreelance" name="IdFreelance" id="IdFreelance" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="IdFreelance"  >
                     </div>
@@ -72,6 +72,7 @@ include ("connexion.php")
                 <div>
                          <input type="ville" name="ville" id="ville" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="ville"  >
                     </div>
+                    </form>
                   
 
                
@@ -88,7 +89,7 @@ include ("connexion.php")
 </form>
 
            <table class=" table-auto w-full text-center whitespace-no-wrap border-spacing-2">
-        <thead>
+        <thead class="dark:bg-custom-green dark:text-black rounded-lg mb-3" >
            <th>IdFreelance</th>
             <th>nom_du_freelancer</th>
             <th>Compétences</th>
@@ -96,6 +97,9 @@ include ("connexion.php")
             <th>region</th>
             <th>ville</th>
             <th>idUser</th>
+            <th>ajouter</th>
+            <th>supprimer</th>
+
 
         </thead>
         <tbody>
@@ -116,6 +120,9 @@ include ("connexion.php")
                         <td><?php echo $row['region']?></td>
                         <td><?php echo $row['ville']?></td>
                         <td><?php echo $row['idUser']?></td>
+                        <td><a href="modifer_free.php?IdFreelance=<?php echo $row['IdFreelance'] ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style=" margin:10px" >modifier</a></td>
+                        <td><a href="supprimer_free.php?IdFreelance=<?php echo $row['IdFreelance'] ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="margin:10px " >supprimer</a></td>
+                        
                         
 
 
