@@ -9,20 +9,33 @@ include ("connexion.php")
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="../src/style.css">
 </head>
 
-<body class="overflow-x-hidden dark:bg-gray-900 dark:text-white">
-  <!-- #endregion -->
-   <?php
+
+
+<body class="overflow-x-hidden  dark:bg-gray-900 dark:text-white">
+   
+<?php
     include ("sidebar.php")
     ?>
-      <!-- side bar -->
-      <section class="flex-grow lg:w-9/12 flex flex-col gap-14 px-2 ">
-           <h1 class="font-bold text-4xl text-center">projects</h1>
-           <button id="btnmodal" class="flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="width: 105px ;padding-left:35px">ADD  </button>
 
-           <form action="ajouterpro.php" method="post">
-<div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0  max-h-full">
+        <!-- end side bar -->
+
+   
+ 
+    <!-- end side bar -->
+
+        <section class="flex-grow lg:w-9/12 flex flex-col gap-14 px-2 ">
+           <h1 class="font-bold text-4xl text-center">users</h1>
+           <button id="btnmodal" class="flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="width: 105px ;padding-left:35px">ADD  </button>
+           
+
+<!-- Modal toggle -->
+ 
+<!-- Main modal -->
+<form action="ajouterDB.php" method="post">
+<div id="default-modal" tabindex="-1" aria-hidden="true" class=" hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0  max-h-full">
     <div class="relative p-4 w-full max-w-2xl max-h-full">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -40,26 +53,18 @@ include ("connexion.php")
             </div>
             <!-- Modal body -->
             <div class=" md:p-5 space-y-4">
-          
-                    <form action="">
+            <form action="">
+               
                 <div>
-                         <input type="IdProject" name="IdProject" id="IdProject" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="IdProject"  >
+                         <input type="mame" name="mame" id="mame" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="name"  >
                     </div>
                 <div>
-                         <input type="TitleOfProject" name="TitleOfProject" id="TitleOfProject" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="TitleOfProject"  >
+                         <input type="PASSWORD" name="PASSWORD" id="PASSWORD" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="PASSWORD"  >
                     </div>
                 <div>
-                         <input type="Description_of_project" name="Description_of_project" id="Description_of_project" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="Description_of_project"  >
+                         <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="email"  >
                     </div>
-                <div>
-                         <input type="IdCatégorie" name="IdCatégorie" id="IdCatégorie" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="IdCatégorie"  >
-                    </div>
-                <div>
-                         <input type="IdSousCatégories" name="IdSousCatégories" id="IdSousCatégories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="IdSousCatégories"  >
-                    </div>
-                <div>
-                         <input type="idUser" name="idUser" id="idUser" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="idUser"  >
-                    </div>
+                 
                     </form>
                   
 
@@ -69,25 +74,28 @@ include ("connexion.php")
             <!-- Modal footer -->
             <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
             <button id="last_btn_close" data-modal-hide="default-modal" type="button" class="btn btn-secondary text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
-            <input   name="add_freelancer" value="add" type="submit" class="btn btn-success ms-3  text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> 
+            <input   name="add_user" value="add" type="submit" class="btn btn-success ms-3  text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> 
             </div>
         </div>
     </div>
 </div>
 </form>
+
            <table class=" table-auto w-full text-center whitespace-no-wrap border-spacing-2">
-        <thead>
-            <th>IdProject</th>
-            <th>Title Of Project</th>
-            <th>Description_of_project</th>
-            <th>IdCatégorie</th>
-            <th>IdSousCatégories</th>
-            <th>idUser</th>
+        <thead class="dark:bg-custom-green dark:text-black rounded-lg mb-3" >
+           <th>id</th>
+            <th>name complet</th>
+            <th>PASSWORD</th>
+            <th>email</th>
+            
+            <th>ajouter</th>
+            <th>supprimer</th>
+
 
         </thead>
         <tbody>
-        <?php
-            $query = " SELECT * FROM projects";
+            <?php
+            $query = " SELECT * FROM user";
             $result = mysqli_query($conn, $query);
 
             if (!$result){
@@ -96,13 +104,14 @@ include ("connexion.php")
                 while($row =mysqli_fetch_assoc($result)){
                     ?>
                     <tr>
-                        <td><?php echo $row['IdProject']?></td>
-                        <td><?php echo $row['TitleOfProject']?></td>
-                        <td><?php echo $row['Description_of_project']?></td>
-                        <td><?php echo $row['IdCatégorie']?></td>
-                        <td><?php echo $row['IdSousCatégories']?></td>
-                        <td><?php echo $row['idUser']?></td>
-                      
+                    <td><?php echo $row['id']?></td>
+                    <td><?php echo $row['mame']?></td>
+                        <td><?php echo $row['PASSWORD']?></td>
+                        <td><?php echo $row['email']?></td>
+                         
+                        <td><a href="modifer_free.php?IdFreelance=<?php echo $row['id'] ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style=" margin:10px" >modifier</a></td>
+                        <td><a href="supprimer_free.php?IdFreelance=<?php echo $row['id'] ; ?>" class="btn flex items-center text-center  p-2 text-red-900 rounded-lg  dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="margin:10px " >supprimer</a></td>
+                        
                         
 
 
@@ -119,18 +128,41 @@ include ("connexion.php")
             
             ?>
            
+            
+
         </tbody>
+
+    </table>
+    <?php
+    if(isset($_GET['message'])){
+        echo "<h6>".$_GET['message']."</h6>";
+    }
+    ?>
+    <?php
+    if(isset($_GET['insert_msg'])){
+        echo "<h6>".$_GET['insert_msg']."</h6>";
+    }
+    ?>
+    <?php
+    if(isset($_GET['delete_msg'])){
+        echo "<h6>".$_GET['delete_msg']."</h6>";
+    }
+    ?>
     
+ 
+        </section>
+    </div>
 
 
-        
+
     <script src="../javascript/jquery.js"></script>
     <script src="../javascript/dashboard.js"></script>
     <script src="../javascript/script.js"></script>
     <script src="../javascript/freelances.js"></script>
 
-    <script src="../javascript/dashInbox.js"></script>
+    <script src="../javascript/dashUser.js"></script>
 
 </body>
 
 </html>
+

@@ -20,7 +20,7 @@ if(isset($_POST["add_user"])){
         die("query failed".mysqli_error());
     }
     else{
-        header('location:freelances.php?insert_msg=You data has benn added succes');
+        header('location:user.php?insert_msg=You data has benn added succes');
     }
    }
 }

@@ -27,14 +27,14 @@ include ("connexion.php")
     <!-- end side bar -->
 
         <section class="flex-grow lg:w-9/12 flex flex-col gap-14 px-2 ">
-           <h1 class="font-bold text-4xl text-center">users</h1>
+           <h1 class="font-bold text-4xl text-center">freelances</h1>
            <button id="btnmodal" class="flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="width: 105px ;padding-left:35px">ADD  </button>
            
 
 <!-- Modal toggle -->
  
 <!-- Main modal -->
-<form action="ajouterDB.php" method="post">
+<form action="ajouterdbfre.php" method="POST">
 <div id="default-modal" tabindex="-1" aria-hidden="true" class=" hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0  max-h-full">
     <div class="relative p-4 w-full max-w-2xl max-h-full">
         <!-- Modal content -->
@@ -42,7 +42,7 @@ include ("connexion.php")
             <!-- Modal header -->
             <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                  add freelance
+                  add freelances
                 </h3>
                 <button id="close-modal" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -55,14 +55,15 @@ include ("connexion.php")
             <div class=" md:p-5 space-y-4">
             <form action="">
                
+
                 <div>
-                         <input type="mame" name="mame" id="mame" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="name"  >
+                         <input type="name_freelince" name="name_freelince" id="name_freelince" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="name_freelince"  >
                     </div>
                 <div>
-                         <input type="PASSWORD" name="PASSWORD" id="PASSWORD" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="PASSWORD"  >
+                         <input type="skills" name="skills" id="skills" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="skills"  >
                     </div>
-                <div>
-                         <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="email"  >
+                    <div>
+                         <input type="id" name="id" id="id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="id user"  >
                     </div>
                  
                     </form>
@@ -74,7 +75,7 @@ include ("connexion.php")
             <!-- Modal footer -->
             <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
             <button id="last_btn_close" data-modal-hide="default-modal" type="button" class="btn btn-secondary text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
-            <input   name="add_user" value="add" type="submit" class="btn btn-success ms-3  text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> 
+            <input   name="add_freelancer" value="add" type="submit" class="btn btn-success ms-3  text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> 
             </div>
         </div>
     </div>
@@ -83,10 +84,10 @@ include ("connexion.php")
 
            <table class=" table-auto w-full text-center whitespace-no-wrap border-spacing-2">
         <thead class="dark:bg-custom-green dark:text-black rounded-lg mb-3" >
-           <th>id</th>
-            <th>name complet</th>
-            <th>PASSWORD</th>
-            <th>email</th>
+           <th>Id_freelance</th>
+            <th>nom du freelancer</th>
+            <th>skills</th>
+            <th>id</th>
             
             <th>ajouter</th>
             <th>supprimer</th>
@@ -95,7 +96,7 @@ include ("connexion.php")
         </thead>
         <tbody>
             <?php
-            $query = " SELECT * FROM user";
+            $query = " SELECT * FROM freelances";
             $result = mysqli_query($conn, $query);
 
             if (!$result){
@@ -104,13 +105,14 @@ include ("connexion.php")
                 while($row =mysqli_fetch_assoc($result)){
                     ?>
                     <tr>
-                    <td><?php echo $row['id']?></td>
-                    <td><?php echo $row['mame']?></td>
-                        <td><?php echo $row['PASSWORD']?></td>
-                        <td><?php echo $row['email']?></td>
+               
+                        <td><?php echo $row['Id_freelance']?></td>
+                        <td><?php echo $row['name_freelince']?></td>
+                        <td><?php echo $row['skills']?></td>
+                        <td><?php echo $row['id']?></td>
                          
-                        <td><a href="modifer_free.php?IdFreelance=<?php echo $row['id'] ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style=" margin:10px" >modifier</a></td>
-                        <td><a href="supprimer_free.php?IdFreelance=<?php echo $row['id'] ; ?>" class="btn flex items-center text-center  p-2 text-red-900 rounded-lg  dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="margin:10px " >supprimer</a></td>
+                        <td><a href="modifer_free.php?IdFreelance=<?php echo $row['Id_freelance'] ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style=" margin:10px" >modifier</a></td>
+                        <td><a href="supprimer_free.php?IdFreelance=<?php echo $row['Id_freelance'] ; ?>" class="btn flex items-center text-center  p-2 text-red-900 rounded-lg  dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="margin:10px " >supprimer</a></td>
                         
                         
 
