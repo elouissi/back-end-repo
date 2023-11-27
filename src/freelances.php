@@ -55,6 +55,9 @@ include ("connexion.php")
             <div class=" md:p-5 space-y-4">
           
                 <div>
+                         <input type="IdFreelance" name="IdFreelance" id="IdFreelance" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="IdFreelance"  >
+                    </div>
+                <div>
                          <input type="nom_du_freelancer" name="nom_du_freelancer" id="nom_du_freelancer" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="nom_du_freelancer"  >
                     </div>
                 <div>
@@ -86,7 +89,7 @@ include ("connexion.php")
 
            <table class=" table-auto w-full text-center whitespace-no-wrap border-spacing-2">
         <thead>
-           
+           <th>IdFreelance</th>
             <th>nom_du_freelancer</th>
             <th>Compétences</th>
             <th>montant</th>
@@ -106,6 +109,7 @@ include ("connexion.php")
                 while($row =mysqli_fetch_assoc($result)){
                     ?>
                     <tr>
+                    <td><?php echo $row['IdFreelance']?></td>
                     <td><?php echo $row['nom_du_freelancer']?></td>
                         <td><?php echo $row['Compétences']?></td>
                         <td><?php echo $row['Montant']?></td>
@@ -139,8 +143,8 @@ include ("connexion.php")
     }
     ?>
     <?php
-    if(isset($_GET[''])){
-        echo "<h6>".$_GET['message']."</h6>";
+    if(isset($_GET['insert_msg'])){
+        echo "<h6>".$_GET['insert_msg']."</h6>";
     }
     ?>
     

@@ -1,7 +1,8 @@
 
 <?php
-// include("connexion.php");
+include("connexion.php");
 if(isset($_POST["add_freelancer"])){
+    $IdFreelance = $_POST["IdFreelance"];
    $nom_du_freelancer = $_POST['nom_du_freelancer'];
    $Compétences = $_POST['Compétences'];
    $montant = $_POST['montant'];
@@ -12,9 +13,10 @@ if(isset($_POST["add_freelancer"])){
    if($nom_du_freelancer == "" || empty($nom_du_freelancer)){
     header('location:freelances.php?message=you need to fill in the name');
    }else{
-    $query = "INSERT into `freelances` (`nom_du_freelancer`, `Compétences`, `Montant`, `region`, `ville`) 
-    values ('nom_du_freelancer','Compétences','montant','region','ville')";
-    $result = mysqli_query($query);
+    $query = "INSERT into `freelances` (`IdFreelance`, `nom_du_freelancer`, `Compétences`, `Montant`, `region`, `ville`) 
+    values ($IdFreelance, '$nom_du_freelancer', '$Compétences', '$montant', '$region', '$ville')";
+    
+    $result = mysqli_query($conn,$query);
     if(!$result){
         die("query failed".mysqli_error());
     }
@@ -27,3 +29,5 @@ if(isset($_POST["add_freelancer"])){
 
  
 ?>
+
+IdFreelance
