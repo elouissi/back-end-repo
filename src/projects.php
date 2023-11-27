@@ -19,6 +19,62 @@ include ("connexion.php")
       <!-- side bar -->
       <section class="flex-grow lg:w-9/12 flex flex-col gap-14 px-2 ">
            <h1 class="font-bold text-4xl text-center">projects</h1>
+           <button id="btnmodal" class="flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="width: 105px ;padding-left:35px">ADD  </button>
+
+           <form action="ajouterpro.php" method="post">
+<div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0  max-h-full">
+    <div class="relative p-4 w-full max-w-2xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  add freelance
+                </h3>
+                <button id="close-modal" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class=" md:p-5 space-y-4">
+          
+                    <form action="">
+                <div>
+                         <input type="IdProject" name="IdProject" id="IdProject" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="IdProject"  >
+                    </div>
+                <div>
+                         <input type="TitleOfProject" name="TitleOfProject" id="TitleOfProject" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="TitleOfProject"  >
+                    </div>
+                <div>
+                         <input type="Description_of_project" name="Description_of_project" id="Description_of_project" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="Description_of_project"  >
+                    </div>
+                <div>
+                         <input type="IdCatégorie" name="IdCatégorie" id="IdCatégorie" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="IdCatégorie"  >
+                    </div>
+                <div>
+                         <input type="IdSousCatégories" name="IdSousCatégories" id="IdSousCatégories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="IdSousCatégories"  >
+                    </div>
+                <div>
+                         <input type="idUser" name="idUser" id="idUser" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="idUser"  >
+                    </div>
+                    </form>
+                  
+
+               
+                
+            </div>
+            <!-- Modal footer -->
+            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+            <button id="last_btn_close" data-modal-hide="default-modal" type="button" class="btn btn-secondary text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
+            <input   name="add_freelancer" value="add" type="submit" class="btn btn-success ms-3  text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> 
+            </div>
+        </div>
+    </div>
+</div>
+</form>
            <table class=" table-auto w-full text-center whitespace-no-wrap border-spacing-2">
         <thead>
             <th>IdProject</th>
@@ -66,351 +122,12 @@ include ("connexion.php")
         </tbody>
     
 
-<!-- 
-        <section class="flex lg:w-9/12  flex-col py-7  px-1 sm:px-5 gap-5 flex-grow">
-            <h1 class="font-bold text-center text-2xl">INBOX</h1>
-            <div class=" flex flex-col sm:flex-row justify-center gap-1 bg-slate-500 dark:bg-slate-800 p-5">
-                <input type="text "
-                    placeholder="Search " class="p-1 sm:w-1/2 rounded-lg dark:text-black lg:text-xl"> <span
-                    class="p-2 sm:w-1/6 rounded-md justify-around bg-white flex items-center dark:text-black"><span>sort by..</span>
-                    <svg width="12" height="12" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M4.62126 1.625L3.96985 2.25V2.875L3.31844 2.25L3.96985 1.625H6.57549L4.62126 4.125V4.75V2.25M4.62126 6L2.01562 1H7.22689L4.62126 6Z"
-                            stroke="black" stroke-width="2" />
-                    </svg>
-                </span></div>
-            <div class=" py-4   ">
-                <h5 class="border-t-2 border-b-2 py-4 font-semibold text-lg font-serif px-2">
-                    to day
-                </h5>
-                <ul class="flex flex-col">
-                    <li class="email_message flex flex-col border-b-2 py-3  h-20  sm:h-14 overflow-y-hidden px-2 ">
-                        <div class=" w-full flex gap-5 items-center  ">
-                            <div class="flex-grow text-left ">
-                                <span class="w-1/2 email_user text-xs sm:text-sm">simotergui4@gmail.com</span>
-                                <span class="w-1/2 text-xs sm:text-sm">10/20/2018</span>
-                            </div>
-                            <span class="btn_messag_inbox cursor-pointer pl-3 w-28 flex items-center gap-1">
-                                <span
-                                    class="text-blue-500">show more
-                                </span>
-                                <svg   width="13" height="13" viewBox="0 0 9 9" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M4.62126 1.625L3.96985 2.25V2.875L3.31844 2.25L3.96985 1.625H6.57549L4.62126 4.125V4.75V2.25M4.62126 6L2.01562 1H7.22689L4.62126 6Z"
-                                        stroke="black" stroke-width="2" />
-                                </svg>
-                            </span>
-                            <span class="py-1">
-                                <span
-                                    class="text-red-500 ml-4 cursor-pointer btn_dele_message_inbox text-xs sm:text-sm">DELE</span>
-                                <span
-                                    class="text-blue-600 ml-4 cursor-pointer btn_open_model_replay_inbox text-xs sm:text-sm">Replay</span>
-                            </span>
-                        </div>
-                        <p class="text-center p-8 text-xs sm:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Voluptatibus consequatur vero voluptate aut distinctio. Iste eos odio dolorem quae
-                            ullam? Molestiae quam sint, quo pariatur quaerat repudiandae itaque assumenda repellendus?
-                        </p>
-                    </li>
-                    <li class="email_message flex flex-col border-b-2 py-3  h-20  sm:h-14 overflow-y-hidden px-2 ">
-                        <div class=" w-full flex gap-5 items-center  ">
-                            <div class="flex-grow text-left ">
-                                <span class="w-1/2 email_user text-xs sm:text-sm">simotergui4@gmail.com</span>
-                                <span class="w-1/2 text-xs sm:text-sm">10/20/2018</span>
-                            </div>
-                            <span class="btn_messag_inbox cursor-pointer pl-3 w-28 flex items-center gap-1">
-                                <span
-                                    class="text-blue-500">show more
-                                </span>
-                                <svg   width="13" height="13" viewBox="0 0 9 9" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M4.62126 1.625L3.96985 2.25V2.875L3.31844 2.25L3.96985 1.625H6.57549L4.62126 4.125V4.75V2.25M4.62126 6L2.01562 1H7.22689L4.62126 6Z"
-                                        stroke="black" stroke-width="2" />
-                                </svg>
-                            </span>
-                            <span class="py-1">
-                                <span
-                                    class="text-red-500 ml-4 cursor-pointer btn_dele_message_inbox text-xs sm:text-sm">DELE</span>
-                                <span
-                                    class="text-blue-600 ml-4 cursor-pointer btn_open_model_replay_inbox text-xs sm:text-sm">Replay</span>
-                            </span>
-                        </div>
-                        <p class="text-center p-8 text-xs sm:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Voluptatibus consequatur vero voluptate aut distinctio. Iste eos odio dolorem quae
-                            ullam? Molestiae quam sint, quo pariatur quaerat repudiandae itaque assumenda repellendus?
-                        </p>
-                    </li>
-                    <li class="email_message flex flex-col border-b-2 py-3  h-20  sm:h-14 overflow-y-hidden px-2 ">
-                        <div class=" w-full flex gap-5 items-center  ">
-                            <div class="flex-grow text-left ">
-                                <span class="w-1/2 email_user text-xs sm:text-sm">simotergui4@gmail.com</span>
-                                <span class="w-1/2 text-xs sm:text-sm">10/20/2018</span>
-                            </div>
-                            <span class="btn_messag_inbox cursor-pointer pl-3 w-28 flex items-center gap-1">
-                                <span
-                                    class="text-blue-500">show more
-                                </span>
-                                <svg   width="13" height="13" viewBox="0 0 9 9" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M4.62126 1.625L3.96985 2.25V2.875L3.31844 2.25L3.96985 1.625H6.57549L4.62126 4.125V4.75V2.25M4.62126 6L2.01562 1H7.22689L4.62126 6Z"
-                                        stroke="black" stroke-width="2" />
-                                </svg>
-                            </span>
-                            <span class="py-1">
-                                <span
-                                    class="text-red-500 ml-4 cursor-pointer btn_dele_message_inbox text-xs sm:text-sm">DELE</span>
-                                <span
-                                    class="text-blue-600 ml-4 cursor-pointer btn_open_model_replay_inbox text-xs sm:text-sm">Replay</span>
-                            </span>
-                        </div>
-                        <p class="text-center p-8 text-xs sm:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Voluptatibus consequatur vero voluptate aut distinctio. Iste eos odio dolorem quae
-                            ullam? Molestiae quam sint, quo pariatur quaerat repudiandae itaque assumenda repellendus?
-                        </p>
-                    </li>
-                    <li class="email_message flex flex-col border-b-2 py-3  h-20  sm:h-14 overflow-y-hidden px-2 ">
-                        <div class=" w-full flex gap-5 items-center  ">
-                            <div class="flex-grow text-left ">
-                                <span class="w-1/2 email_user text-xs sm:text-sm">simotergui4@gmail.com</span>
-                                <span class="w-1/2 text-xs sm:text-sm">10/20/2018</span>
-                            </div>
-                            <span class="btn_messag_inbox cursor-pointer pl-3 w-28 flex items-center gap-1">
-                                <span
-                                    class="text-blue-500">show more
-                                </span>
-                                <svg   width="13" height="13" viewBox="0 0 9 9" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M4.62126 1.625L3.96985 2.25V2.875L3.31844 2.25L3.96985 1.625H6.57549L4.62126 4.125V4.75V2.25M4.62126 6L2.01562 1H7.22689L4.62126 6Z"
-                                        stroke="black" stroke-width="2" />
-                                </svg>
-                            </span>
-                            <span class="py-1">
-                                <span
-                                    class="text-red-500 ml-4 cursor-pointer btn_dele_message_inbox text-xs sm:text-sm">DELE</span>
-                                <span
-                                    class="text-blue-600 ml-4 cursor-pointer btn_open_model_replay_inbox text-xs sm:text-sm">Replay</span>
-                            </span>
-                        </div>
-                        <p class="text-center p-8 text-xs sm:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Voluptatibus consequatur vero voluptate aut distinctio. Iste eos odio dolorem quae
-                            ullam? Molestiae quam sint, quo pariatur quaerat repudiandae itaque assumenda repellendus?
-                        </p>
-                    </li>
-                    <li class="email_message flex flex-col border-b-2 py-3  h-20  sm:h-14 overflow-y-hidden px-2 ">
-                        <div class=" w-full flex gap-5 items-center  ">
-                            <div class="flex-grow text-left ">
-                                <span class="w-1/2 email_user text-xs sm:text-sm">simotergui4@gmail.com</span>
-                                <span class="w-1/2 text-xs sm:text-sm">10/20/2018</span>
-                            </div>
-                            <span class="btn_messag_inbox cursor-pointer pl-3 w-28 flex items-center gap-1">
-                                <span
-                                    class="text-blue-500">show more
-                                </span>
-                                <svg   width="13" height="13" viewBox="0 0 9 9" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M4.62126 1.625L3.96985 2.25V2.875L3.31844 2.25L3.96985 1.625H6.57549L4.62126 4.125V4.75V2.25M4.62126 6L2.01562 1H7.22689L4.62126 6Z"
-                                        stroke="black" stroke-width="2" />
-                                </svg>
-                            </span>
-                            <span class="py-1">
-                                <span
-                                    class="text-red-500 ml-4 cursor-pointer btn_dele_message_inbox text-xs sm:text-sm">DELE</span>
-                                <span
-                                    class="text-blue-600 ml-4 cursor-pointer btn_open_model_replay_inbox text-xs sm:text-sm">Replay</span>
-                            </span>
-                        </div>
-                        <p class="text-center p-8 text-xs sm:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Voluptatibus consequatur vero voluptate aut distinctio. Iste eos odio dolorem quae
-                            ullam? Molestiae quam sint, quo pariatur quaerat repudiandae itaque assumenda repellendus?
-                        </p>
-                    </li>
-                    <li class="email_message flex flex-col border-b-2 py-3  h-20  sm:h-14 overflow-y-hidden px-2 ">
-                        <div class=" w-full flex gap-5 items-center  ">
-                            <div class="flex-grow text-left ">
-                                <span class="w-1/2 email_user text-xs sm:text-sm">simotergui4@gmail.com</span>
-                                <span class="w-1/2 text-xs sm:text-sm">10/20/2018</span>
-                            </div>
-                            <span class="btn_messag_inbox cursor-pointer pl-3 w-28 flex items-center gap-1">
-                                <span
-                                    class="text-blue-500">show more
-                                </span>
-                                <svg   width="13" height="13" viewBox="0 0 9 9" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M4.62126 1.625L3.96985 2.25V2.875L3.31844 2.25L3.96985 1.625H6.57549L4.62126 4.125V4.75V2.25M4.62126 6L2.01562 1H7.22689L4.62126 6Z"
-                                        stroke="black" stroke-width="2" />
-                                </svg>
-                            </span>
-                            <span class="py-1">
-                                <span
-                                    class="text-red-500 ml-4 cursor-pointer btn_dele_message_inbox text-xs sm:text-sm">DELE</span>
-                                <span
-                                    class="text-blue-600 ml-4 cursor-pointer btn_open_model_replay_inbox text-xs sm:text-sm">Replay</span>
-                            </span>
-                        </div>
-                        <p class="text-center p-8 text-xs sm:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Voluptatibus consequatur vero voluptate aut distinctio. Iste eos odio dolorem quae
-                            ullam? Molestiae quam sint, quo pariatur quaerat repudiandae itaque assumenda repellendus?
-                        </p>
-                    </li>
-                    <li class="email_message flex flex-col border-b-2 py-3  h-20  sm:h-14 overflow-y-hidden px-2 ">
-                        <div class=" w-full flex gap-5 items-center  ">
-                            <div class="flex-grow text-left ">
-                                <span class="w-1/2 email_user text-xs sm:text-sm">simotergui4@gmail.com</span>
-                                <span class="w-1/2 text-xs sm:text-sm">10/20/2018</span>
-                            </div>
-                            <span class="btn_messag_inbox cursor-pointer pl-3 w-28 flex items-center gap-1">
-                                <span
-                                    class="text-blue-500">show more
-                                </span>
-                                <svg   width="13" height="13" viewBox="0 0 9 9" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M4.62126 1.625L3.96985 2.25V2.875L3.31844 2.25L3.96985 1.625H6.57549L4.62126 4.125V4.75V2.25M4.62126 6L2.01562 1H7.22689L4.62126 6Z"
-                                        stroke="black" stroke-width="2" />
-                                </svg>
-                            </span>
-                            <span class="py-1">
-                                <span
-                                    class="text-red-500 ml-4 cursor-pointer btn_dele_message_inbox text-xs sm:text-sm">DELE</span>
-                                <span
-                                    class="text-blue-600 ml-4 cursor-pointer btn_open_model_replay_inbox text-xs sm:text-sm">Replay</span>
-                            </span>
-                        </div>
-                        <p class="text-center p-8 text-xs sm:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Voluptatibus consequatur vero voluptate aut distinctio. Iste eos odio dolorem quae
-                            ullam? Molestiae quam sint, quo pariatur quaerat repudiandae itaque assumenda repellendus?
-                        </p>
-                    </li>
-                    <li class="email_message flex flex-col border-b-2 py-3  h-20  sm:h-14 overflow-y-hidden px-2 ">
-                        <div class=" w-full flex gap-5 items-center  ">
-                            <div class="flex-grow text-left ">
-                                <span class="w-1/2 email_user text-xs sm:text-sm">simotergui4@gmail.com</span>
-                                <span class="w-1/2 text-xs sm:text-sm">10/20/2018</span>
-                            </div>
-                            <span class="btn_messag_inbox cursor-pointer pl-3 w-28 flex items-center gap-1">
-                                <span
-                                    class="text-blue-500">show more
-                                </span>
-                                <svg   width="13" height="13" viewBox="0 0 9 9" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M4.62126 1.625L3.96985 2.25V2.875L3.31844 2.25L3.96985 1.625H6.57549L4.62126 4.125V4.75V2.25M4.62126 6L2.01562 1H7.22689L4.62126 6Z"
-                                        stroke="black" stroke-width="2" />
-                                </svg>
-                            </span>
-                            <span class="py-1">
-                                <span
-                                    class="text-red-500 ml-4 cursor-pointer btn_dele_message_inbox text-xs sm:text-sm">DELE</span>
-                                <span
-                                    class="text-blue-600 ml-4 cursor-pointer btn_open_model_replay_inbox text-xs sm:text-sm">Replay</span>
-                            </span>
-                        </div>
-                        <p class="text-center p-8 text-xs sm:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Voluptatibus consequatur vero voluptate aut distinctio. Iste eos odio dolorem quae
-                            ullam? Molestiae quam sint, quo pariatur quaerat repudiandae itaque assumenda repellendus?
-                        </p>
-                    </li>
-                    <li class="email_message flex flex-col border-b-2 py-3  h-20  sm:h-14 overflow-y-hidden px-2 ">
-                        <div class=" w-full flex gap-5 items-center  ">
-                            <div class="flex-grow text-left ">
-                                <span class="w-1/2 email_user text-xs sm:text-sm">simotergui4@gmail.com</span>
-                                <span class="w-1/2 text-xs sm:text-sm">10/20/2018</span>
-                            </div>
-                            <span class="btn_messag_inbox cursor-pointer pl-3 w-28 flex items-center gap-1">
-                                <span
-                                    class="text-blue-500">show more
-                                </span>
-                                <svg   width="13" height="13" viewBox="0 0 9 9" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M4.62126 1.625L3.96985 2.25V2.875L3.31844 2.25L3.96985 1.625H6.57549L4.62126 4.125V4.75V2.25M4.62126 6L2.01562 1H7.22689L4.62126 6Z"
-                                        stroke="black" stroke-width="2" />
-                                </svg>
-                            </span>
-                            <span class="py-1">
-                                <span
-                                    class="text-red-500 ml-4 cursor-pointer btn_dele_message_inbox text-xs sm:text-sm">DELE</span>
-                                <span
-                                    class="text-blue-600 ml-4 cursor-pointer btn_open_model_replay_inbox text-xs sm:text-sm">Replay</span>
-                            </span>
-                        </div>
-                        <p class="text-center p-8 text-xs sm:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Voluptatibus consequatur vero voluptate aut distinctio. Iste eos odio dolorem quae
-                            ullam? Molestiae quam sint, quo pariatur quaerat repudiandae itaque assumenda repellendus?
-                        </p>
-                    </li>
-                    <li class="email_message flex flex-col border-b-2 py-3  h-20  sm:h-14 overflow-y-hidden px-2 ">
-                        <div class=" w-full flex gap-5 items-center  ">
-                            <div class="flex-grow text-left ">
-                                <span class="w-1/2 email_user text-xs sm:text-sm">simotergui4@gmail.com</span>
-                                <span class="w-1/2 text-xs sm:text-sm">10/20/2018</span>
-                            </div>
-                            <span class="btn_messag_inbox cursor-pointer pl-3 w-28 flex items-center gap-1">
-                                <span
-                                    class="text-blue-500">show more
-                                </span>
-                                <svg   width="13" height="13" viewBox="0 0 9 9" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M4.62126 1.625L3.96985 2.25V2.875L3.31844 2.25L3.96985 1.625H6.57549L4.62126 4.125V4.75V2.25M4.62126 6L2.01562 1H7.22689L4.62126 6Z"
-                                        stroke="black" stroke-width="2" />
-                                </svg>
-                            </span>
-                            <span class="py-1">
-                                <span
-                                    class="text-red-500 ml-4 cursor-pointer btn_dele_message_inbox text-xs sm:text-sm">DELE</span>
-                                <span
-                                    class="text-blue-600 ml-4 cursor-pointer btn_open_model_replay_inbox text-xs sm:text-sm">Replay</span>
-                            </span>
-                        </div>
-                        <p class="text-center p-8 text-xs sm:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Voluptatibus consequatur vero voluptate aut distinctio. Iste eos odio dolorem quae
-                            ullam? Molestiae quam sint, quo pariatur quaerat repudiandae itaque assumenda repellendus?
-                        </p>
-                    </li>
 
-        </ul>
-
-
-
-            </div>
-
-
-
-
-        </section>
-
-    </div> -->
-
-    <!-- foooter -->
-    <!-- <dialog id="dailog_replay" class="flex-col w-auto h-5/6 p-5 rounded-xl gap-4 dark:bg-gray-800 dark:text-white">
-        <div id="clse_btn" class="flex justify-end p-3"><svg width="18" height="21" viewBox="0 0 18 21" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 3L8.75 10.5M14.5 18L8.75 10.5M8.75 10.5L14.5 3L3 18" stroke="#FF0909" stroke-width="7" />
-            </svg>
-        </div>
-        <div class="flex flex-row justify-center p-6 rounded-tr-lg rounded-tl-lg bg-slate-500 dark:bg-slate-700 text-xs md:text-xl">
-            <span>Send To:
-            </span>
-            <span id="email_inbx">
-
-            </span>
-        </div>
-        <form class="h-auto">
-            <textarea class="w-full h-auto border dark:bg-slate-600 " name="textarea" id="textarea" cols="10" rows="15"></textarea>
-            <div class="flex justify-end"><button id="btn_send_mssg"
-                    class="bg-blue-500 px-4 py-1 rounded-md">Send</button></div>
-        </form>
-    </dialog> -->
+        
     <script src="../javascript/jquery.js"></script>
     <script src="../javascript/dashboard.js"></script>
     <script src="../javascript/script.js"></script>
+    <script src="../javascript/freelances.js"></script>
 
     <script src="../javascript/dashInbox.js"></script>
 

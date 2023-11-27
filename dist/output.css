@@ -2040,6 +2040,11 @@ video {
   color: rgb(234 179 8 / var(--tw-text-opacity));
 }
 
+.text-red-900 {
+  --tw-text-opacity: 1;
+  color: rgb(127 29 29 / var(--tw-text-opacity));
+}
+
 .no-underline {
   text-decoration-line: none;
 }
@@ -2612,6 +2617,10 @@ textarea {
 :is(.dark .dark\:bg-red-700) {
   --tw-bg-opacity: 1;
   background-color: rgb(185 28 28 / var(--tw-bg-opacity));
+}
+
+:is(.dark .dark\:bg-custom-green-) {
+  background-color: #05c50be4;
 }
 
 :is(.dark .dark\:text-black) {
