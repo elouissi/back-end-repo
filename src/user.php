@@ -109,8 +109,8 @@ include ("connexion.php")
                         <td><?php echo $row['PASSWORD']?></td>
                         <td><?php echo $row['email']?></td>
                          
-                        <td><a href="modifer_free.php?IdFreelance=<?php echo $row['id'] ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style=" margin:10px" >modifier</a></td>
-                        <td><a href="supprimer_free.php?IdFreelance=<?php echo $row['id'] ; ?>" class="btn flex items-center text-center  p-2 text-red-900 rounded-lg  dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="margin:10px " >supprimer</a></td>
+                        <td><a href="modifer_user.php?id=<?php echo $row['id'] ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style=" margin:10px" >modifier</a></td>
+                        <td><a href="supprimer_free.php?id=<?php echo $row['id'] ; ?>" class="btn flex items-center text-center  p-2 text-red-900 rounded-lg  dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="margin:10px " >supprimer</a></td>
                         
                         
 

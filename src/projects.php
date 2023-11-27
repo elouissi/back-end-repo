@@ -17,7 +17,12 @@ include ("connexion.php")
 <body class="overflow-x-hidden  dark:bg-gray-900 dark:text-white">
    
 <?php
-    include ("sidebar.php")
+    include ("sidebar.php");
+    $query_select_all="SELECT id_project, titre, name_cat  FROM project INNER JOIN 
+    categores on project.id_cat=categores.id_cat";
+   
+    $result = mysqli_query($conn, $query_select_all);
+
     ?>
 
         <!-- end side bar -->
@@ -58,15 +63,37 @@ include ("connexion.php")
                 <div>
                          <input type="titre" name="titre" id="titre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="titre"  >
                     </div>
-                <div>
-                         <input type="id_cat" name="id_cat" id="id_cat" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="id_cat"  >
-                    </div>
-                <div>
-                         <input type="id_sub_cat" name="id_sub_cat" id="id_sub_cat" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="id_sub_cat"  >
-                    </div>
-                <div>
-                         <input type="id" name="id" id="id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="id"  >
-                    </div>
+                    <select id="category" name="username"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                    <option selected disabled>selectionner votre utilisateur</option>
+                                     <?php
+
+                                            while ($row = mysqli_fetch_assoc($result)):
+                                               $name_user=$row['mame'];
+                                               $id_user=$row['id'];
+                                    ?> 
+                                    <option value="<?=$id_user?>"><?=$name_user?></option>
+
+                                    <?php endwhile;  ?>
+                                
+                             
+                                </select>
+                                <!-- <select id="category" name="username"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                    <option selected disabled>selectionner votre utilisateur</option>
+                                     <?php
+
+                                            while ($row = mysqli_fetch_assoc($result)):
+                                               $name_user=$row['mame'];
+                                               $id_user=$row['id'];
+                                    ?> 
+                                    <option value="<?=$id_user?>"><?=$name_user?></option>
+
+                                    <?php endwhile;  ?>
+                                
+                             
+                                </select> -->
+                
                 <div>
                          <input type="description" name="description" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="description"  >
                     </div>
@@ -80,7 +107,7 @@ include ("connexion.php")
             <!-- Modal footer -->
             <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
             <button id="last_btn_close" data-modal-hide="default-modal" type="button" class="btn btn-secondary text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
-            <input   name="add_user" value="add" type="submit" class="btn btn-success ms-3  text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> 
+            <input   name="add_project" value="add" type="submit" class="btn btn-success ms-3  text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> 
             </div>
         </div>
     </div>
@@ -91,9 +118,9 @@ include ("connexion.php")
         <thead class="dark:bg-custom-green dark:text-black rounded-lg mb-3" >
            <th>id_project</th>
             <th>titre</th>
-            <th>id_cat</th>
-            <th>id_sub_cat</th>
-            <th>id</th>
+            <th>name_category</th>
+            <!-- <th>id_sub_cat</th>
+            <th>id</th> -->
             <th>description</th>
             
             <th>ajouter</th>
@@ -103,25 +130,28 @@ include ("connexion.php")
         </thead>
         <tbody>
             <?php
-            $query = " SELECT * FROM project";
-            $result = mysqli_query($conn, $query);
+            $query = "SELECT id_project, titre, name_cat  FROM project INNER JOIN 
+            categores on project.id_cat=categores.id_cat";
+          $result = mysqli_query($conn, $query_select_all);
 
             if (!$result){
                 die("query failed".mysqli_error($conn));
             }else{
                 while($row =mysqli_fetch_assoc($result)){
+
+                
+
                     ?>
                     <tr>
                     <td><?php echo $row['id_project']?></td>
                    
                     <td><?php echo $row['titre']?></td>
-                        <td><?php echo $row['id_cat']?></td>
-                        <td><?php echo $row['id_sub_cat']?></td>
-                         <td><?php echo $row['id']?></td>
-                         <td><?php echo $row['description']?></td>
+                        <td><?php echo $row['name_cat']?></td>
+                    
+                         <td><?php  echo $row['description']  ?></td>
                          
-                        <td><a href="modifer_free.php?IdFreelance=<?php echo $row['id'] ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style=" margin:10px" >modifier</a></td>
-                        <td><a href="supprimer_free.php?IdFreelance=<?php echo $row['id'] ; ?>" class="btn flex items-center text-center  p-2 text-red-900 rounded-lg  dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="margin:10px " >supprimer</a></td>
+                        <td><a href="modifer_free.php?IdFreelance=<?php echo $row['id_project'] ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style=" margin:10px" >modifier</a></td>
+                        <td><a href="supprimer_free.php?IdFreelance=<?php echo $row['id_project'] ; ?>" class="btn flex items-center text-center  p-2 text-red-900 rounded-lg  dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="margin:10px " >supprimer</a></td>
                         
                         
 
