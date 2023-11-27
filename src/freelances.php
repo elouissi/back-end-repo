@@ -121,7 +121,7 @@ include ("connexion.php")
                         <td><?php echo $row['ville']?></td>
                         <td><?php echo $row['idUser']?></td>
                         <td><a href="modifer_free.php?IdFreelance=<?php echo $row['IdFreelance'] ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style=" margin:10px" >modifier</a></td>
-                        <td><a href="supprimer_free.php?IdFreelance=<?php echo $row['IdFreelance'] ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="margin:10px " >supprimer</a></td>
+                        <td><a href="supprimer_free.php?IdFreelance=<?php echo $row['IdFreelance'] ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg bg-red-700 dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="margin:10px " >supprimer</a></td>
                         
                         
 
@@ -152,6 +152,11 @@ include ("connexion.php")
     <?php
     if(isset($_GET['insert_msg'])){
         echo "<h6>".$_GET['insert_msg']."</h6>";
+    }
+    ?>
+    <?php
+    if(isset($_GET['delete_msg'])){
+        echo "<h6>".$_GET['delete_msg']."</h6>";
     }
     ?>
     
