@@ -2,10 +2,11 @@
 <?php
 include("connexion.php");
 if(isset($_POST["add_freelancer"])){
-  
+    // $id = $_POST['id'];
+    $username = $_POST['username'];
    $name_freelince = $_POST['name_freelince'];
    $skills = $_POST['skills'];
-   $mames = $_POST['mame'];
+//    $selectedUsername = $_POST['username'];
  
  
 
@@ -13,8 +14,8 @@ if(isset($_POST["add_freelancer"])){
    if($name_freelince == "" || empty($name_freelince)){
     header('location:freelances.php?message=you need to fill in the name');
    }else{
-    $query = "INSERT into `freelances` (`name_freelince`, `skills`, `mame` ) 
-    values ( '$name_freelince', '$skills' , $mame )";
+    $query = "INSERT into `freelances` (`name_freelince`, `skills`,`id` ) 
+    values ( '$name_freelince', '$skills', $username  )";
     $result = mysqli_query($conn,$query);
     if(!$result){
         die("query failed".mysqli_error());
@@ -24,6 +25,7 @@ if(isset($_POST["add_freelancer"])){
     }
    }
 }
+
 
 
 $query = "SELECT mame FROM user";
@@ -51,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result && $row = mysqli_fetch_assoc($result)) {
         $userID = $row['id'];
 
-        $sql = "INSERT INTO freelances (name_freelince, skills, mame) VALUES ('$name_freelince', '$skills', '$selectedUsername')";
+        $sql = "INSERT INTO freelances (name_freelince, skills, mame) VALUES ('$name_freelince', '$skills', '$username')";
 
         if (mysqli_query($conn, $sql)) {
             header("location:freelancers.php");
@@ -68,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 $sql = "SELECT f.Id_freelance, f.name_freelince, f.skills, u.mame
-        FROM nvpeoplepertask.freelances f
+        FROM freelances f
         JOIN usersu ON f.Id_freelance = u.id";
 $result = mysqli_query($conn, $sql);
 
