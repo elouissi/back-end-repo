@@ -840,6 +840,10 @@ video {
   margin-top: 1.25rem;
 }
 
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
 .box-content {
   box-sizing: content-box;
 }

@@ -17,7 +17,20 @@ include ("connexion.php")
 <body class="overflow-x-hidden  dark:bg-gray-900 dark:text-white">
    
 <?php
-    include ("sidebar.php")
+    include ("sidebar.php");
+    
+$query = "SELECT mame FROM user";
+$result = mysqli_query($conn, $query);
+if (!$result) {
+    die("Error in SQL query: " . mysqli_error($conn) . "<br>Query: " . $query);
+}
+$mames = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $mames[] = $row['mame'];
+}
+mysqli_free_result($result);
+ 
+
     ?>
 
         <!-- end side bar -->
@@ -62,11 +75,19 @@ include ("connexion.php")
                 <div>
                          <input type="skills" name="skills" id="skills" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="skills"  >
                     </div>
-                    <div>
-                         <input type="id" name="id" id="id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="id user"  >
-                    </div>
+             
+                         <select id="category" name="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            <option selected disabled>selectionner votre utilisateur</option>
+                            <?php
+
+                        foreach ($mames as $mame) {
+                            echo "<option value=$mame>$mame</option>";
+                        }
+                        ?>
+                        </select>
+                        
                  
-                    </form>
+                 
                   
 
                
@@ -87,7 +108,7 @@ include ("connexion.php")
            <th>Id_freelance</th>
             <th>nom du freelancer</th>
             <th>skills</th>
-            <th>id</th>
+            <th>nom d'user</th>
             
             <th>ajouter</th>
             <th>supprimer</th>
@@ -96,7 +117,10 @@ include ("connexion.php")
         </thead>
         <tbody>
             <?php
-            $query = " SELECT * FROM freelances";
+            $query = " SELECT  freelances.* , user.mame FROM freelances
+            LEFT JOIN user ON freelances.Id_freelance = user.id";
+             
+                   
             $result = mysqli_query($conn, $query);
 
             if (!$result){
@@ -109,7 +133,7 @@ include ("connexion.php")
                         <td><?php echo $row['Id_freelance']?></td>
                         <td><?php echo $row['name_freelince']?></td>
                         <td><?php echo $row['skills']?></td>
-                        <td><?php echo $row['id']?></td>
+                        <td><?php echo $row['mame']?></td>
                          
                         <td><a href="modifer_free.php?IdFreelance=<?php echo $row['Id_freelance'] ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style=" margin:10px" >modifier</a></td>
                         <td><a href="supprimer_free.php?IdFreelance=<?php echo $row['Id_freelance'] ; ?>" class="btn flex items-center text-center  p-2 text-red-900 rounded-lg  dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="margin:10px " >supprimer</a></td>
