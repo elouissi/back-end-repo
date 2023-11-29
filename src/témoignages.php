@@ -22,8 +22,15 @@ include ("connexion.php")
  
         <section class="flex-grow lg:w-9/12 flex flex-col gap-14 px-2 ">
            <h1 class="font-bold text-4xl text-center">Témoignages</h1>
-            
- 
+           <button id="btnmodal"
+            class="flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            style="width: 105px ;padding-left:35px">ADD </button>
+
+
+        <!-- Modal toggle -->
+
+        <!-- Main modal -->
+      
 
            <table class=" table-auto w-full text-center whitespace-no-wrap border-spacing-2">
         <thead class="dark:bg-custom-green dark:text-black rounded-lg mb-3" >

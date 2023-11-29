@@ -1,27 +1,27 @@
 
 <?php
 include("connexion.php");
-if(isset($_POST["add_freelancer"])){
+if(isset($_POST["ajouter_tem"])){
     // $id = $_POST['id'];
     $username = $_POST['username'];
-   $name_freelince = $_POST['name_freelince'];
-   $skills = $_POST['skills'];
+   $commente = $_POST['commente'];
+ 
 //    $selectedUsername = $_POST['username'];
  
  
 
 
-   if($name_freelince == "" || empty($name_freelince)){
-    header('location:freelances.php?message=you need to fill in the name');
+   if($commente == "" || empty($commente)){
+    header('location:témoignages.php?message=you need to fill in the name');
    }else{
-    $query = "INSERT into `freelances` (`name_freelince`, `skills`,`id` ) 
-    values ( '$name_freelince', '$skills', $username  )";
+    $query = "INSERT into `freelances` (`commente`, `id` ) 
+    values ( '$commente',   $username  )";
     $result = mysqli_query($conn,$query);
     if(!$result){
         die("query failed".mysqli_error());
     }
     else{
-        header('location:freelancers.php?insert_msg=You data has benn added succes');
+        header('location:témoignages.php?insert_msg=You data has benn added succes');
     }
    }
 }
@@ -53,10 +53,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result && $row = mysqli_fetch_assoc($result)) {
         $userID = $row['id'];
 
-        $sql = "INSERT INTO freelances (name_freelince, skills, mame) VALUES ('$name_freelince', '$skills', '$username')";
+        $sql = "INSERT INTO testimoniales (commente,  mame) VALUES ('$commente', '$username')";
 
         if (mysqli_query($conn, $sql)) {
-            header("location:freelancers.php");
+            header("location:témoignages.php");
             exit();
         } else {
             echo "Error: " . mysqli_error($conn);
@@ -69,15 +69,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-$sql = "SELECT f.Id_freelance, f.name_freelince, f.skills, u.mame
-        FROM freelances f
-        JOIN usersu ON f.Id_freelance = u.id";
+$sql = "SELECT t.Id_Testimonials, f.commente , u.mame
+        FROM testimoniales t
+        JOIN users u ON t.Id_Testimonials = u.id";
 $result = mysqli_query($conn, $sql);
 
 
  
 ?>
 
-
-
-    
