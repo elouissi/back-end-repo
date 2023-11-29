@@ -164,10 +164,10 @@ include("connexion.php")
                                 <?php echo $row['mame'] ?>
                             </td>
 
-                            <td><a href="modifier_free.php?IdFreelance=<?php echo $row['Id_freelance']; ?>"
+                            <td><a href="modifier_free.php?Id_freelance=<?php echo $row['Id_freelance']; ?>"
                                     class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"
                                     style=" margin:10px">modifier</a></td>
-                            <td><a href="supprimer_free.php?IdFreelance=<?php echo $row['Id_freelance']; ?>"
+                            <td><a href="supprimer_free.php?Id_freelance=<?php echo $row['Id_freelance']; ?>"
                                     class="btn flex items-center text-center  p-2 text-red-900 rounded-lg  dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"
                                     style="margin:10px ">supprimer</a></td>
 

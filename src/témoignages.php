@@ -51,7 +51,7 @@ include ("connexion.php")
                     <td><?php echo $row['Id_Testimonials']?></td>
                     <td><?php echo $row['commente']?></td>
                         <td><?php echo $row['mame']?></td>                         
-                         <td><a href="supprimer_free.php?IdFreelance=<?php echo $row['id'] ; ?>" class="btn flex items-center text-center  p-2 text-red-900 rounded-lg  dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="margin:10px " >supprimer</a></td>
+                         <td><a href="supprimer_tem.php?IdFreelance=<?php echo $row['Id_Testimonials'] ; ?>" class="btn flex items-center text-center  p-2 text-red-900 rounded-lg  dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="margin:10px " >supprimer</a></td>
  
                     </tr>
                     <?php
