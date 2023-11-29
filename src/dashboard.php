@@ -13,7 +13,8 @@ include ("connexion.php")
 
 <body class="overflow-x-hidden  ">
     <?php
-    include ("sidebar.php")
+    include ("sidebar.php");
+    require ("statistiques.php");
     ?>
   
     <!-- end side bar -->
@@ -25,29 +26,29 @@ include ("connexion.php")
 
         <section class="  flex flex-wrap justify-center gap-2 py-7  ">
           <div class="shadow-lg text-center w-2/3 sm:w-2/5 bg-gray-50 flex flex-col gap-2 py-3 rounded-lg dark:bg-gray-600 dark:text-white">
-            <h4 class="  text-xl font-semibold "> Product Sold</h4>
-            <p class="font-bold text-4xl">13.8k</p>
+            <h4 class="  text-xl font-semibold "> Utilisateurs</h4>
+            <p class="font-bold text-4xl"><?=  count_users() ?></p>
             <span class="text-custom-green">
               +7%
             </span>
           </div>
           <div class="shadow-lg text-center w-2/3 sm:w-2/5 bg-gray-50 flex flex-col gap-2 py-3 rounded-lg dark:bg-gray-600 dark:text-white">
-            <h4 class="  text-xl font-semibold "> Total Profit</h4>
-            <p class="font-bold text-4xl">$1,237K</p>
+            <h4 class="  text-xl font-semibold "> freelancers</h4>
+            <p class="font-bold text-4xl"><?=  count_freelancers() ?></p>
             <span class="text-custom-green">
               +0.007%
             </span>
           </div>
           <div class="shadow-lg text-center w-2/3 sm:w-2/5 bg-gray-50 flex flex-col gap-2 py-3 rounded-lg dark:bg-gray-600 dark:text-white">
-            <h4 class="  text-xl font-semibold "> No. of Claims</h4>
-            <p class="font-bold text-4xl">1.3M</p>
+            <h4 class="  text-xl font-semibold ">Projects</h4>
+            <p class="font-bold text-4xl"><?=  count_projects() ?></p>
             <span class="text-custom-green">
               +10%
             </span>
           </div>
           <div class="shadow-lg text-center  w-2/3 sm:w-2/5 bg-gray-50 flex flex-col  gap-2 py-3 rounded-lg dark:bg-gray-600 dark:text-white">
-            <h4 class="  text-xl font-semibold "> New Customers</h4>
-            <p class="font-bold text-4xl">1,237</p>
+            <h4 class="  text-xl font-semibold "> categories</h4>
+            <p class="font-bold text-4xl"><?= count_categories() ?></p>
             <span class="text-red-600">
               -0.08%
             </span>

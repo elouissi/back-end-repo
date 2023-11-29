@@ -22,6 +22,7 @@ include ("connexion.php")
     categores on project.id_cat=categores.id_cat";
    
     $result = mysqli_query($conn, $query_select_all);
+    
 
     ?>
 
