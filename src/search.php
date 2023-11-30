@@ -10,6 +10,7 @@ include ("connexion.php")
   <link rel="stylesheet" href="../dist/output.css">
   <link rel="stylesheet" href="input.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
 </head>
 <body class="overflow-x-hidden dark:bg-slate-900">
   <!-- Header -->

@@ -10,6 +10,7 @@ include ("connexion.php")
   <link rel="stylesheet" href="../dist/output.css">
   <link rel="stylesheet" href="input.css">
   <link rel="stylesheet" href="../dist/swiper-bundle.min.css">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
   <title>peaple per task</title>
 </head>
 

@@ -9,7 +9,8 @@ require 'script.php';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../dist/output.css" rel="stylesheet">
-  <link rel="stylesheet" href="input.css">
+  <link rel="stylesheet" href="input.css"> 
+   <link rel="icon" type="image/png" href="../images/favicon.png">
 
 </head>
 <body class="dark:bg-slate-900">

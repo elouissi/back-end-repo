@@ -49,7 +49,7 @@
         <a href="./sign_in.php"
           class="text-custom-green  text-center border-solid border-2 border-custom-green rounded-md  px-3">
           <span>
-            sign in
+            sign up
           </span>
         </a>
         <a href="./log_in.php" class="bg-custom-green rounded-md px-3 text-center text-white font-semibold">

@@ -15,7 +15,6 @@ function signup()
 {
     global $conn;
 
-
   
     $mame = $_POST["mame"];
     $email = $_POST["email"];
@@ -56,6 +55,28 @@ function signup()
         echo "Error";
     }
 
+
+}
+
+
+
+function getAllUsers()
+{
+    global $conn;
+    $query = 'SELECT * FROM user';
+    $result = mysqli_query($conn, $query);
+    $rows = [];
+
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+
+            $rows[] = $row;
+        }
+        return $rows;
+    }
+     mysqli_close($conn);
+    return null;
+   
 
 }
 
