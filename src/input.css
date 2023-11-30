@@ -84,16 +84,16 @@ footer{
     fill: black;
     transform: scale(1.05);
 }
-.tab-group {
+/* .tab-group {
 	list-style: none;
 	padding: 0;
 	margin: 0 0 40px 0;
 
-}
+} */
 
-.tab-group:after {
+.tab-group {
 	content: "";
-	display: table;
+	display: block;
 	clear: both;
 }
 
@@ -117,7 +117,7 @@ footer{
 } 
 
 .tab-content>div:last-child {
-	display: none;
+	display: block;
 }
 
 label {

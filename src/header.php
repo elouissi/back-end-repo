@@ -44,15 +44,15 @@
         </li>
       </ul>
       <div class=" lg:w-auto  w-3/4 flex flex-col lg:flex-row  justify-center gap-4      self-center  text-1xl  ">
-        <a href="./sign_in.html"
+        <a href="./sign_in.php"
           class="text-custom-green  text-center border-solid border-2 border-custom-green rounded-md  px-3">
           <span>
-            Log in
+            sign in
           </span>
         </a>
-        <a href="./sign_in.html" class="bg-custom-green rounded-md px-3 text-center text-white font-semibold">
+        <a href="./log_in.php" class="bg-custom-green rounded-md px-3 text-center text-white font-semibold">
           <span>
-            Register
+            log in
           </span>
         </a>
       </div>
