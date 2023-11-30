@@ -1,5 +1,6 @@
 <?php 
-include ("connexion.php")
+include ("connexion.php");
+require 'script.php';
 ?>
 <!doctype html>
 <html>
@@ -33,26 +34,17 @@ include ("connexion.php")
                 Sign Up for Free</h1>
 
             <form action="script.php" method="POST">
-                <div class=" flex top-row relative">
-                    <div class=" relative mb-10 w-1/2 mr-4">
-                        <label class="block">
-                            First Name<span class="text-teal-500 ml-2">*</span>
-                        </label>
-                        <input
-                            class="text-black block w-full h-fit py-1 px-2 border border-gray-300 rounded-none transition duration-250 bg-white"
-                            type="text" name="first_name" required autocomplete="off" />
-                    </div>
-                    <div class="relative mb-10 w-1/2">
-                        <label class="block">
-                            Last Name<span class="text-teal-500 ml-2">*</span>
-                        </label>
-                        <input
-                            class="text-black block w-full h-fit py-1 px-2 border border-gray-300 rounded-none transition duration-250 bg-white"
-                            type="text" name="last_name" required autocomplete="off" />
-                    </div>
+            
+
+
+                <div class="relative mb-10">
+                    <label>
+                       Full name<span class="text-teal-500 ml-2">*</span>
+                    </label>
+                    <input
+                        class="text-black block w-full h-fit py-1 px-2 border border-gray-300 rounded-none transition duration-250 bg-white"
+                        type="mame" name="mame"  required autocomplete="off" />
                 </div>
-
-
                 <div class="relative mb-10">
                     <label>
                         Email Address<span class="text-teal-500 ml-2">*</span>
@@ -68,7 +60,15 @@ include ("connexion.php")
                     </label>
                     <input
                         class="text-black block w-full h-fit py-1 px-2 border border-gray-300 rounded-none transition duration-250 bg-white"
-                        type="text" name="password" required autocomplete="off" />
+                        type="password" name="PASSWORD" required autocomplete="off" />
+                </div>
+                <div class="relative mb-10">
+                    <label>
+                    Confirm password<span class="text-teal-500 ml-2">*</span>
+                    </label>
+                    <input
+                        class="text-black block w-full h-fit py-1 px-2 border border-gray-300 rounded-none transition duration-250 bg-white"
+                        type="password" name="repeat_password" required autocomplete="off" />
                 </div>
                 <button type="submit" name="submit"
                     class="w-full bg-teal-500 hover:bg-custom-green text-white border-0 rounded-none focus:outline-none uppercase tracking-wide font-semibold py-4 px-0 text-base transition-all duration-500 ease-in-out">
