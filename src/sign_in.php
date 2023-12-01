@@ -71,6 +71,13 @@ require 'script.php';
                         class="text-black block w-full h-fit py-1 px-2 border border-gray-300 rounded-none transition duration-250 bg-white"
                         type="password" name="repeat_password" required autocomplete="off" />
                 </div>
+                <div class="relative mb-10">
+                    <select name="city" id="">
+                    
+
+                    </select>
+
+                </div>
                 <button type="submit" name="submit"
                     class="w-full bg-teal-500 hover:bg-custom-green text-white border-0 rounded-none focus:outline-none uppercase tracking-wide font-semibold py-4 px-0 text-base transition-all duration-500 ease-in-out">
                     Get Started

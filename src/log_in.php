@@ -35,29 +35,33 @@ include ("connexion.php")
             <h1 class="text-center text-gray-400 font-light mb-10 text-2xl font-sans">
                 Welcome Back!</h1>
 
-            <form action="/" method="post">
+            <form action="script.php" method="post">
 
                 <div class="relative mb-10">
-                    <label>
+                    <label for="email" >
                         Email Address<span class="text-teal-500 ml-2">*</span>
                     </label>
                     <input
                         class="text-black block w-full h-fit py-1 px-2 border border-gray-300 rounded-none transition duration-250 bg-white"
-                        type="email" required autocomplete="off" />
+                        type="email" name="email" value="<?= isset($_COOKIE['email']) ? $_COOKIE['email'] : ''?>" required autocomplete="off" />
                 </div>
 
                 <div class="relative mb-10">
-                    <label>
+                    <label for="PASSWORD" >
                         Password<span class="text-teal-500 ml-2">*</span>
                     </label>
                     <input
-                        class="text-black block w-full h-fit py-1 px-2 border border-gray-300 rounded-none transition duration-250 bg-white"
+                        class="text-black block w-full h-fit py-1 px-2 border border-gray-300 rounded-none transition duration-250 bg-white" value="<?= isset($_COOKIE['PASSWORD']) ? $_COOKIE['PASSWORD'] : ''?>"  name="PASSWORD"
                         type="password" required autocomplete="off" />
                 </div>
-                <button type="submit"
+                <button type="submit" name="login"
                     class="w-full bg-teal-500 text-white border-0 rounded-none hover:bg-custom-green focus:outline-none uppercase tracking-wide font-semibold py-4 px-0 text-base transition-all duration-500 ease-in-out">
-                    Get Started
+                    <a href="index.php">Get started</a>
+                    
                 </button>
+                <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                      Don’t have an account yet? <a href="sign_in.php" class="font-medium text-blue-700 hover:underline dark:text-primary-500">Sign up</a>
+                  </p>
 
             </form>
 

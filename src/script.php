@@ -1,11 +1,13 @@
 <?php
 
-require ("connexion.php");
+require_once ("connexion.php");
+include_once("script.php");
 
 session_start();
 
 if (isset($_POST['submit'])) {
     signup();
+    
 } else if (isset($_POST["login"])) {
     login();
 }
@@ -77,6 +79,91 @@ function getAllUsers()
      mysqli_close($conn);
     return null;
    
+
+}
+
+function login()
+{
+    global $conn;
+
+    $email = $_POST["email"];
+    $password = $_POST["PASSWORD"];
+
+    // préparez une requête avec un seul paramètre pour l'e-mail
+    $sql = "SELECT * FROM  user WHERE email = ?";
+
+
+    // préparez la requête
+    $stmt = mysqli_prepare($conn, $sql);
+
+
+    // liez le paramètre (uniquement pour l'e-mail)
+    mysqli_stmt_bind_param($stmt, 's',$email);
+
+    // exécutez la requête préparée
+   mysqli_stmt_execute($stmt);
+
+
+
+    // obtenez le résultat (mysqli_stmt_get_result)
+    $result = mysqli_stmt_get_result($stmt);
+
+    if($row = mysqli_fetch_assoc($result)) {
+
+        if(password_verify($password, $row['PASSWORD'])){
+
+        
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['mame'] = $row['mame'];
+
+            if(isset($_POST['email'])){
+                setcookie('email', $email, time() + 2*60,'/');
+                setcookie('PASSWORD', $password, time() + 2*60,'/');
+                header('location: index.php');
+            }
+
+   
+        }else{
+            echo "password invalid ";
+        }
+    }else {
+        echo "emal invalid";
+    }
+
+    // vérifiez s'il y a un utilisateur avec cet e-mail
+
+    // vérifiez le mot de passe
+
+
+    // le mot de passe est valide
+
+    // stockez l'ID de l'utilisateur dans la session
+
+
+
+
+    // vérifiez si l'option "se souvenir de moi" est cochée
+
+    // définissez des cookies
+
+
+    // redirigez vers la page d'accueil
+
+
+    // redirigez vers la page d'accueil
+
+    // assurez-vous de quitter le script après une redirection
+
+
+    // mot de passe invalide
+
+
+
+    // aucun utilisateur trouvé avec cet e-mail
+
+
+
+    // fermez l'instruction et la connexion
 
 }
 
