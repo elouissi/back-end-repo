@@ -41,7 +41,7 @@ function signup()
         $result = mysqli_stmt_execute($stmt);
 
         if ($result) {
-            header("Location: index.php");
+            header("Location: log_in.php");
         } else {
             echo "Error";
         }
@@ -61,26 +61,6 @@ function signup()
 }
 
 
-
-function getAllUsers()
-{
-    global $conn;
-    $query = 'SELECT * FROM user';
-    $result = mysqli_query($conn, $query);
-    $rows = [];
-
-    if ($result) {
-        while ($row = mysqli_fetch_assoc($result)) {
-
-            $rows[] = $row;
-        }
-        return $rows;
-    }
-     mysqli_close($conn);
-    return null;
-   
-
-}
 
 function login()
 {
