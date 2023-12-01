@@ -41,95 +41,83 @@ slide();
 /*** Categories section ***/
 let categoriesInfos = [
     {
+        
         id: 1,
         imgURL: "../images/categories/cat1.webp",
-        text: "Engage your community",
-        catName: "Content Writing"
+      
     },
 
     {
         id: 2,
         imgURL: "../images/categories/cat2.webp",
-        text: "Boost your traffic",
-        catName: "SEO"
+    
     },
 
 
     {
         id: 3,
         imgURL: "../images/categories/cat3.webp",
-        text: "Build your site",
-        catName: "Website Development"
+    
     },
 
     {
         id: 4,
         imgURL: "../images/categories/cat4.webp",
-        text: "Elevate your brnad",
-        catName: "Logo Design"
+     
     },
 
     {
         id: 5,
         imgURL: "../images/categories/cat5.webp",
-        text: "Tell your story",
-        catName: "Voice-over"
+         
     },
 
     {
         id: 6,
         imgURL: "../images/categories/cat6.webp",
-        text: "Picture your idea",
-        catName: "Illustration & Drawing"
+ 
     },
 
     {
         id: 7,
         imgURL: "../images/categories/cat7.webp",
-        text: "Amplify your network",
-        catName: "Social Media Startegy"
+    
     },
 
     {
         id: 8,
         imgURL: "../images/categories/cat8.webp",
-        text: "get more customers",
-        catName: "SEM, Adwords & PPC"
+      
     },
 
     {
         id: 9,
         imgURL: "../images/categories/cat9.webp",
-        text: "Convert more leads",
-        catName: "Sales & Calls"
+  
     },
 
     {
         id: 10,
         imgURL: "../images/categories/cat10.webp",
-        text: "Ease your workload",
-        catName: "Admin Assistance"
+  
     },
 
     {
         id: 11,
         imgURL: "../images/categories/cat11.webp",
-        text: "Visualise your story",
-        catName: "Videography"
+ 
     },
 
     {
         id: 12,
         imgURL: "../images/categories/cat12.webp",
-        text: "Reach new audiences",
-        catName: "Translation"
+ 
     },
 
     {
         id: 13,
         imgURL: "../images/categories/cat13.webp",
-        text: "Bring it to life",
-        catName: "Graphic Design"
+    
     }
 ]
 let categoriesCards = document.querySelectorAll('.categories-section .category-card');
@@ -138,8 +126,7 @@ let makeCategoriesCards = (infos) => {
     let i = 0;
     categoriesCards.forEach(card => {
         card.style.backgroundImage = `url("${infos[i].imgURL}")`;
-        card.querySelector('p').textContent = infos[i].text;
-        card.querySelector('h3').textContent = infos[i].catName;
+    
         i++;
     })
 }

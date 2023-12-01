@@ -18,6 +18,7 @@
             </svg>
 
         </span>
+    
         <!-- side bar -->
         <div id="sidebar"
             class="  fixed top-0 left-0 z-40 w-72 sm:h-full h-screen transition-transform -translate-x-full lg:translate-x-0"
@@ -34,6 +35,7 @@
                     </svg>
 
                 </span>
+                <a href="index.php">
                 <div class="  self-center m-auto flex   lg:m-0 sm:m-3 ">
                     <span class="bg-white dark:bg-custom-green rounded-full p-2">
                         <svg width="47" height="47" viewBox="0 0 47 43" fill="none"
@@ -53,6 +55,7 @@
                             class="text-gray-50 ">Per</span>Task
                     </span>
                 </div>
+                </a>
                 <ul class="h-5/6 flex flex-col gap-1 mt-2 space-y-1 font-medium">
                     <li>
                         <span  

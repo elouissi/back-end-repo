@@ -3,6 +3,7 @@ include ("connexion.php")
 ?>
 
 <header class="flex bg-gray-50 justify-between p-2 md:py-3 md:px-8 lg:px-10 dark:bg-slate-800">
+  <a href="index.php">
     <div class="flex">
       <span class="bg-custom-green rounded-full p-2 w-9 h-9 md:w-11 md:h-11 lg:w-14 lg:h-14">
         <svg class="w-full h-full" viewBox="0 0 47 43" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -20,6 +21,8 @@ include ("connexion.php")
       <span class="text-custom-green text-md md:text-xl lg:text-2xl font-bold self-center">People<span class="text-gray-500 dark:text-white">Per</span>Task
       </span>
     </div>
+    </a>
+
 
     <nav id="navbar"
       class="z-50 lg:items-center self-center flex flex-col gap-32 lg:flex-row  dark:bg-slate-800 lg:p-0  px-2 pb-8 w-3/6 sm:w-1/3 lg:static absolute lg:bg-transparent bg-gray-50 top-16 right-0  lg:w-9/12  lg:justify-end">
