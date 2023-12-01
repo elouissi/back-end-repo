@@ -49,16 +49,17 @@ include ("connexion.php")
             &nbsp;Search
           </a>
         </li>
-        <li>
-        </li>
-        <li>    
-          </li>
+      
+       
         <!-- <li>        <a href="logout.php" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Logout</a>
 </li> -->
       </ul>
+      <div class=" lg:w-auto  w-3/4 flex flex-col lg:flex-row  justify-center gap-4      self-center  text-1xl  ">
      
+
       <?php 
      if(isset($_SESSION['id'])):?>
+    
       <h1 class="my-4 font-bold text-blue-700"> <samp class="text-custom-green-"><?php echo   $_SESSION['mame'] ; ?></samp></h1>
 
       <a href="./logout.php"
@@ -67,9 +68,7 @@ include ("connexion.php")
             log out
           </span>
         </a>
-        <div class=" lg:w-auto  w-3/4 flex flex-col lg:flex-row  justify-center gap-4      self-center  text-1xl  ">
-
-  <?php else: ?>
+   <?php else: ?>
         <a href="./sign_in.php"
           class="text-custom-green  text-center border-solid border-2 border-custom-green rounded-md  px-3">
           <span>

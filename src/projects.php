@@ -18,14 +18,15 @@ include ("connexion.php")
    
 <?php
     include ("sidebar.php");
-    $query_select_all="SELECT id_project, titre, name_cat  FROM project INNER JOIN 
+    $query_select_all="SELECT id_project, titre, name_cat FROM project INNER JOIN 
     categores on project.id_cat=categores.id_cat";
    
     $result = mysqli_query($conn, $query_select_all);
     
-
+    $query = "SELECT name_cat, id_cat FROM categores";
+    $result_cat = mysqli_query($conn, $query);
     ?>
-
+ 
         <!-- end side bar -->
 
    
@@ -62,18 +63,18 @@ include ("connexion.php")
             <form action="">
                
                 <div>
-                         <input type="titre" name="titre" id="titre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="titre"  >
+                        <input type="text" name="titre" id="titre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="titre"  >
                     </div>
-                    <select id="category" name="username"
+                    <select id="category" name="name_cat"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                    <option selected disabled>selectionner votre utilisateur</option>
+                                    <option selected disabled>selectionner votre categories</option>
                                      <?php
 
-                                            while ($row = mysqli_fetch_assoc($result)):
-                                               $name_user=$row['mame'];
-                                               $id_user=$row['id'];
+                                            while ($row = mysqli_fetch_assoc($result_cat)):
+                                               $name_cat=$row['name_cat'];
+                                               $id_cat=$row['id_cat'];
                                     ?> 
-                                    <option value="<?=$id_user?>"><?=$name_user?></option>
+                                    <option value="<?=$id_cat?>"><?=$name_cat?></option>
 
                                     <?php endwhile;  ?>
                                 
@@ -81,22 +82,13 @@ include ("connexion.php")
                                 </select>
                                 <!-- <select id="category" name="username"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                    <option selected disabled>selectionner votre utilisateur</option>
-                                     <?php
-
-                                            while ($row = mysqli_fetch_assoc($result)):
-                                               $name_user=$row['mame'];
-                                               $id_user=$row['id'];
-                                    ?> 
-                                    <option value="<?=$id_user?>"><?=$name_user?></option>
-
-                                    <?php endwhile;  ?>
+                             
                                 
                              
                                 </select> -->
                 
                 <div>
-                         <input type="description" name="description" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="description"  >
+                         <input type="text" name="description" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="description"  >
                     </div>
                  
                     </form>

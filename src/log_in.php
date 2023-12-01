@@ -16,7 +16,10 @@ require 'script.php';
 <body class="dark:bg-slate-900">
   <!-- Header -->
   <?php 
-  include ("header.php")
+  include ("header.php");
+ 
+
+
   ?>
   <!-- end Header -->
    <div class="form">

@@ -51,10 +51,10 @@ function signup()
 
         mysqli_stmt_close($stmt);
         mysqli_close($conn);
-
+//performance securite
 
     }else{
-        echo "Error";
+        echo "pasword dosen't match";
     }
 
 
@@ -87,6 +87,7 @@ function login()
 
     // obtenez le résultat (mysqli_stmt_get_result)
     $result = mysqli_stmt_get_result($stmt);
+    //bolieen 
 
     if($row = mysqli_fetch_assoc($result)) {
 
