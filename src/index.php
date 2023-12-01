@@ -543,16 +543,6 @@ require 'script.php';
         <ul class="flex flex-row h-full py-3 overflow-hidden">
           <li
             class="freelancer-card h-full mr-2 border-2 dark:border-slate-700 drop-shadow-md mb-1 cursor-pointer w-3/4 md:w-2/5 lg:w-1/5 shrink-0 rounded-xl overflow-hidden ">
-            <?php 
-            $query="SELECT * FROM freelances";
-            $result=mysqli_query($conn,$query);
-            if(!$result){
-              die("erro" .mysqli_error($conn));
-            }else{
-              while($row=mysqli_fetch_row($result)){
-                ?>
-                    <li
-            class="freelancer-card h-full mr-2 border-2 dark:border-slate-700 drop-shadow-md mb-1 cursor-pointer w-3/4 md:w-2/5 lg:w-1/5 shrink-0 rounded-xl overflow-hidden">
             <div class="px-3 py-1 bg-green-50 dark:bg-gray-700 h-72 flex flex-col justify-between">
               <div class="w-full mb-3">
                 <img class="photo rounded-full w-7/12 m-auto" src="" alt="freelancerPhoto">
@@ -562,7 +552,7 @@ require 'script.php';
 
               <div class="flex flex-row justify-start gap-2">
                 <img class="country-flag w-6 h-6 rounded-full" src="" alt="countryFlag">
-                <h4 class="country text-gray-500 dark:text-gray-50  font-normal"><?php echo $row['name_freelince']?></h4>
+                <h4 class="country text-gray-500 dark:text-gray-50  font-normal"></h4>
               </div>
 
             </div>
@@ -586,7 +576,7 @@ require 'script.php';
 
               <div class="flex flex-row justify-between text-gray-600 dark:text-slate-400">
                 <div>
-                  <p class="projects">kk,</p>
+                  <p class="projects"></p>
                 </div>
                 <div>
                   <p><strong class="price text-gray-900 dark:text-slate-300"></strong>/hr</p>
@@ -594,13 +584,50 @@ require 'script.php';
               </div>
             </div>
           </li>
-              <?php  
-              }
-            }
-            ?>
-            
 
-      
+          <li
+            class="freelancer-card h-full mr-2 border-2 dark:border-slate-700 drop-shadow-md mb-1 cursor-pointer w-3/4 md:w-2/5 lg:w-1/5 shrink-0 rounded-xl overflow-hidden">
+            <div class="px-3 py-1 bg-green-50 dark:bg-gray-700 h-72 flex flex-col justify-between">
+              <div class="w-full mb-3">
+                <img class="photo rounded-full w-7/12 m-auto" src="" alt="freelancerPhoto">
+                <h3 class="title text-gray-600 dark:text-slate-200 text-center font-bold mt-1 mb-2"></h3>
+                <p class="job text-justify text-md leading-4 text-gray-600 dark:text-slate-300"></p>
+              </div>
+
+              <div class="flex flex-row justify-start gap-2">
+                <img class="country-flag w-6 h-6 rounded-full" src="" alt="countryFlag">
+                <h4 class="country text-gray-500 dark:text-gray-50  font-normal"></h4>
+              </div>
+
+            </div>
+
+            <div class="bg-gray-50 dark:bg-gray-800 p-3 w-full h-2/5 flex flex-col gap-1">
+              <div class="flex flex-row items-center gap-0.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13" fill="none">
+                  <path
+                    d="M7.00656 0.800781L5.26756 5.27278H0.851562L4.44256 8.00078L3.20256 12.5088L7.00656 9.95978L10.8116 12.5088L9.57156 8.00078L13.1616 5.27278H8.74656L7.00656 0.800781Z"
+                    fill="#FFB331" />
+                </svg>
+                <strong class="rating dark:text-yellow-500"></strong>(<p
+                  class="reviews text-gray-700 dark:text-gray-100"></p>)
+              </div>
+
+              <div class="specialities flex flex-row flex-wrap my-1 text-gray-600 dark:text-slate-200">
+                <a href="#" class="px-3 py-1 m-0.5 text-sm bg-gray-50 rounded-md border">
+                  ...
+                </a>
+              </div>
+
+              <div class="flex flex-row justify-between text-gray-600 dark:text-slate-400">
+                <div>
+                  <p class="projects"></p>
+                </div>
+                <div>
+                  <p><strong class="price text-gray-900 dark:text-slate-300"></strong>/hr</p>
+                </div>
+              </div>
+            </div>
+          </li>
 
           <li
             class="freelancer-card h-full mr-2 border-2 dark:border-slate-700 drop-shadow-md mb-1 cursor-pointer w-3/4 md:w-2/5 lg:w-1/5 shrink-0 rounded-xl overflow-hidden">
@@ -2329,7 +2356,6 @@ require 'script.php';
     </div>
   </section>
   <!-- end Testimonials section -->
-
 
   <!-- Footer -->
   <footer class="pt-5 flex flex-col gap-14">
