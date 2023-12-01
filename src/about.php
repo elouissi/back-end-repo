@@ -1,5 +1,6 @@
 <?php 
-include ("connexion.php")
+include ("connexion.php");
+require 'script.php';
 ?>
 <!DOCTYPE html>
 <html>

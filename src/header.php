@@ -1,4 +1,6 @@
-
+<?php 
+include ("connexion.php")
+?>
 
 <header class="flex bg-gray-50 justify-between p-2 md:py-3 md:px-8 lg:px-10 dark:bg-slate-800">
     <div class="flex">
@@ -44,6 +46,11 @@
             &nbsp;Search
           </a>
         </li>
+        <li>
+        <h1 class="my-4 font-bold text-blue-700"> <samp class="text-custom-green-"><?php echo   $_SESSION['mame'] ; ?></samp></h1>
+        </li>
+        <!-- <li>        <a href="logout.php" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Logout</a>
+</li> -->
       </ul>
       <div class=" lg:w-auto  w-3/4 flex flex-col lg:flex-row  justify-center gap-4      self-center  text-1xl  ">
         <a href="./sign_in.php"
@@ -52,6 +59,8 @@
             sign up
           </span>
         </a>
+      
+
         <a href="./log_in.php" class="bg-custom-green rounded-md px-3 text-center text-white font-semibold">
           <span>
             log in
