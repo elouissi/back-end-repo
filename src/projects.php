@@ -143,8 +143,8 @@ include ("connexion.php")
                     
                          <td><?php  echo $row['description']  ?></td>
                          
-                        <td><a href="modifer_free.php?IdFreelance=<?php echo $row['id_project'] ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style=" margin:10px" >modifier</a></td>
-                        <td><a href="supprimer_pro.php?IdFreelance=<?php echo $row['id_project'] ; ?>" class="btn flex items-center text-center  p-2 text-red-900 rounded-lg  dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="margin:10px " >supprimer</a></td>
+                        <td><a href="modifer_pro.php?id_project=<?php echo $row['id_project'] ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style=" margin:10px" >modifier</a></td>
+                        <td><a href="supprimer_pro.php?id_project=<?php echo $row['id_project'] ; ?>" class="btn flex items-center text-center  p-2 text-red-900 rounded-lg  dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="margin:10px " >supprimer</a></td>
                         
                         
 

@@ -1,6 +1,7 @@
 <?php
 include("connexion.php");
 
+
 if(isset($_GET['Id_freelance'])){
     $Id_freelance = $_GET['Id_freelance'];
     $query = "DELETE FROM `freelances` WHERE `Id_freelance`='$Id_freelance'";
