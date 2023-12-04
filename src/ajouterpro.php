@@ -2,10 +2,11 @@
 <?php
  
 include("connexion.php");
+include("script.php");
 if(isset($_POST["add_project"])){
-   $titre = $_POST['titre'];
-   $description = $_POST['description'];
-   $name_cat = $_POST['name_cat'];
+   $titre = test_input($_POST['titre']);
+   $description = test_input($_POST['description']);
+   $name_cat = test_input($_POST['name_cat']);
 var_dump($name_cat);
 //    $IdSousCatégories = $_POST['IdSousCatégories'];
 //    $idUser = $_POST['idUser'];

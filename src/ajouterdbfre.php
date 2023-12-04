@@ -1,11 +1,12 @@
 
 <?php
 include("connexion.php");
+include("script.php");
 if(isset($_POST["add_freelancer"])){
     // $id = $_POST['id'];
-    $username = $_POST['username'];
-   $name_freelince = $_POST['name_freelince'];
-   $skills = $_POST['skills'];
+    $username = test_input($_POST['username']);
+   $name_freelince = test_input($_POST['name_freelince']);
+   $skills = test_input($_POST['skills']);
 //    $selectedUsername = $_POST['username'];
  
  
