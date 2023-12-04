@@ -358,33 +358,31 @@ require 'script.php';
       </div>
 
       <div class="carousal h-72">
-        <ul class="h-full flex flex-row gap-3 text-gray-50 overflow-hidden">
+        <ul class="h-full flex gap-3 text-gray-50 overflow-hidden">
           
-          <li
-            class="bg-no-repeat bg-cover bg-center category-card cursor-pointer w-3/4 md:w-2/5 lg:w-1/6 shrink-0 rounded-lg overflow-hidden">
-            <?php
+          <?php
             $query = " SELECT * FROM categores";
             $result = mysqli_query($conn, $query);
-
+            
             if (!$result){
-                die("query failed".mysqli_error($conn));
+              die("query failed".mysqli_error($conn));
             }else{
-                while($row =mysqli_fetch_assoc($result)){
-                    ?>
-                    <tr>
-                    
-              
+              while($row =mysqli_fetch_assoc($result)){
+                ?>
+                <li
+                  class="bg-no-repeat flex-row bg-cover bg-center category-card cursor-pointer w-3/4 md:w-2/5 lg:w-1/6 shrink-0 rounded-lg overflow-hidden">
+      
              <div class="w-full h-full p-5">
               <a href="#" class="h-fit">
                 <p class="text-md"><?php echo $row['name_cat']?></p>
                 <h3 class="text-lg font-bold"></h3>
               </a>
             </div>
+            </li>
             <?php
             }}?>
-          </li>
 
-          <li
+          <!-- <li
             class="bg-no-repeat bg-cover bg-center category-card cursor-pointer w-3/4 md:w-2/5 lg:w-1/6 shrink-0 rounded-lg overflow-hidden">
             <div class="w-full h-full p-5">
               <a href="#" class="h-fit">
@@ -502,7 +500,7 @@ require 'script.php';
                 <h3 class="text-lg font-bold"></h3>
               </a>
             </div>
-          </li>
+          </li> -->
 
         </ul>
       </div>

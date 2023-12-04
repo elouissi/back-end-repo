@@ -39,7 +39,7 @@ require 'script.php';
             <h1 class="text-center text-gray-400 font-light mb-10 text-2xl font-sans">
                 Welcome Back!</h1>
 
-            <form action="script.php" method="post">
+            <form action="script.php" method="POST">
 
                 <div class="relative mb-10">
                     <label for="email" >

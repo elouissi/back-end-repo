@@ -1,11 +1,14 @@
 
 <?php
 include("connexion.php");
+include("script.php");
 if(isset($_POST["add_user"])){
+ 
+
   
-   $mame = $_POST['mame'];
-   $PASSWORD = $_POST['PASSWORD'];
-   $email = $_POST['email'];
+   $mame = test_input($_POST['mame']);
+   $PASSWORD = test_input($_POST['PASSWORD']);
+   $email = test_input($_POST['email']);
  
 
 

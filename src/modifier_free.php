@@ -27,10 +27,9 @@ if (!$result){
 }
 if (mysqli_num_rows($result) < 0) {
     $row = mysqli_fetch_assoc($result);
-    // Your code here
+ 
 } else {
-    // Handle the case when no rows are returned
-    
+ 
 }
 
 ?>

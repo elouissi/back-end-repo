@@ -60,14 +60,25 @@ function signup()
 
 }
 
+function test_input($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
 
 
 function login()
 {
     global $conn;
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+         
 
-    $email = $_POST["email"];
-    $password = $_POST["PASSWORD"];
+    
+
+    $email = test_input($_POST["email"]);
+    $password = test_input($_POST["PASSWORD"]);
 
     // préparez une requête avec un seul paramètre pour l'e-mail
     $sql = "SELECT * FROM  user WHERE email = ?";
@@ -82,8 +93,6 @@ function login()
 
     // exécutez la requête préparée
    mysqli_stmt_execute($stmt);
-
-
 
     // obtenez le résultat (mysqli_stmt_get_result)
     $result = mysqli_stmt_get_result($stmt);
@@ -111,129 +120,12 @@ function login()
         echo "emal invalid";
     }
 
-    // vérifiez s'il y a un utilisateur avec cet e-mail
-
-    // vérifiez le mot de passe
-
-
-    // le mot de passe est valide
-
-    // stockez l'ID de l'utilisateur dans la session
-
-
-
-
-    // vérifiez si l'option "se souvenir de moi" est cochée
-
-    // définissez des cookies
-
-
-    // redirigez vers la page d'accueil
-
-
-    // redirigez vers la page d'accueil
-
-    // assurez-vous de quitter le script après une redirection
-
-
-    // mot de passe invalide
-
-
-
-    // aucun utilisateur trouvé avec cet e-mail
-
-
-
-    // fermez l'instruction et la connexion
-
+   
+    }
 }
 
 
-// function login()
-// {
-//     global $connexion;
-
-//     $email = $_POST["email"];
-//     $password = $_POST["password"];
-
-
-    // préparez une requête avec un seul paramètre pour l'e-mail
-    // $sql = "SELECT * FROM  users WHERE email = ?";
-
-
-    // préparez la requête
-    // $stmt = mysqli_prepare($connexion, $sql);
-
-
-    // liez le paramètre (uniquement pour l'e-mail)
-    // mysqli_stmt_bind_param($stmt, 's',$email);
-
-    // exécutez la requête préparée
-//    mysqli_stmt_execute($stmt);
-
-
-
-    // obtenez le résultat (mysqli_stmt_get_result)
-    // $result = mysqli_stmt_get_result($stmt);
-
-    // if($row = mysqli_fetch_assoc($result)) {
-
-    //     if(password_verify($password, $row['password'])){
-
-        
-    //         $_SESSION['user_id'] = $row['id'];
-    //         $_SESSION['name'] = $row['frist_name']. '' . $row['last_name'];
-
-    //         if(isset($_POST['email'])){
-    //             setcookie('email', $email, time() + 2*60,'/');
-    //             setcookie('password', $password, time() + 2*60,'/');
-    //             header('location: home.php');
-    //         }
-
-   
-    //     }else{
-    //         echo "password invalid ";
-    //     }
-    // }else {
-    //     echo "emal invalid";
-    // }
-
-    // vérifiez s'il y a un utilisateur avec cet e-mail
-
-    // vérifiez le mot de passe
-
-
-    // le mot de passe est valide
-
-    // stockez l'ID de l'utilisateur dans la session
-
-
-
-
-    // vérifiez si l'option "se souvenir de moi" est cochée
-
-    // définissez des cookies
-
-
-    // redirigez vers la page d'accueil
-
-
-    // redirigez vers la page d'accueil
-
-    // assurez-vous de quitter le script après une redirection
-
-
-    // mot de passe invalide
-
-
-
-    // aucun utilisateur trouvé avec cet e-mail
-
-
-
-    // fermez l'instruction et la connexion
-
-//}
+ 
 
 
 ?>

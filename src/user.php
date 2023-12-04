@@ -1,5 +1,6 @@
 <?php 
-include ("connexion.php")
+include ("connexion.php");
+include ("script.php")
 ?>
 <!doctype html>
 <html >
@@ -85,7 +86,7 @@ include ("connexion.php")
         <thead class="dark:bg-custom-green dark:text-black rounded-lg mb-3" >
            <th>id</th>
             <th>name complet</th>
-            <th>PASSWORD</th>
+ 
             <th>email</th>
             
             <th>ajouter</th>
@@ -106,7 +107,7 @@ include ("connexion.php")
                     <tr>
                     <td><?php echo $row['id']?></td>
                     <td><?php echo $row['mame']?></td>
-                        <td><?php echo $row['PASSWORD']?></td>
+                     
                         <td><?php echo $row['email']?></td>
                          
                         <td><a href="modifer_user.php?id=<?php echo $row['id'] ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style=" margin:10px" >modifier</a></td>
