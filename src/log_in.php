@@ -51,16 +51,16 @@ require 'script.php';
                 </div>
 
                 <div class="relative mb-10">
-                    <label for="PASSWORD" >
+                    <label for="password" >
                         Password<span class="text-teal-500 ml-2">*</span>
                     </label>
                     <input
-                        class="text-black block w-full h-fit py-1 px-2 border border-gray-300 rounded-none transition duration-250 bg-white" value="<?= isset($_COOKIE['PASSWORD']) ? $_COOKIE['PASSWORD'] : ''?>"  name="PASSWORD"
+                        class="text-black block w-full h-fit py-1 px-2 border border-gray-300 rounded-none transition duration-250 bg-white" value="<?= isset($_COOKIE['password']) ? $_COOKIE['password'] : ''?>"  name="password"
                         type="password" required autocomplete="off" />
                 </div>
                 <button type="submit" name="login"
                     class="w-full bg-teal-500 text-white border-0 rounded-none hover:bg-custom-green focus:outline-none uppercase tracking-wide font-semibold py-4 px-0 text-base transition-all duration-500 ease-in-out">
-                    <a href="index.php">Get started</a>
+                    Login
                     
                 </button>
                 <p class="text-sm font-light text-gray-500 dark:text-gray-400">

@@ -60,7 +60,7 @@ include ("connexion.php")
       <?php 
      if(isset($_SESSION['id'])):?>
     
-      <h1 class="my-4 font-bold text-blue-700"> <samp class="text-custom-green-"><?php echo   $_SESSION['mame'] ; ?></samp></h1>
+      <h1 class="my-4 font-bold text-blue-700"> <samp class="text-custom-green-"><?php echo   $_SESSION['name'] ; ?></samp></h1>
 
       <a href="./logout.php"
           class="text-custom-green  text-center border-solid border-2 border-custom-green rounded-md  px-3">

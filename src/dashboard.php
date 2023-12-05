@@ -1,5 +1,10 @@
 <?php 
-include ("connexion.php")
+include ("connexion.php");
+//  if(isset($_SESSION['admin'] )){
+//      if($_SESSION['admin'] = 'admin');
+
+//  }else header("./sign_up.php");
+ 
 ?>
 <!doctype html>
 <html>
@@ -15,6 +20,7 @@ include ("connexion.php")
     <?php
     include ("sidebar.php");
     require ("statistiques.php");
+  
     ?>
   
     <!-- end side bar -->

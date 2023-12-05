@@ -1,14 +1,14 @@
 <?php
 
-require_once ("connexion.php");
-include_once("script.php");
+require_once("connexion.php");
 
 session_start();
 
 if (isset($_POST['submit'])) {
     signup();
-    
-} else if (isset($_POST["login"])) {
+
+}
+if (isset($_POST["login"])) {
     login();
 }
 
@@ -17,16 +17,33 @@ function signup()
 {
     global $conn;
 
-  
-    $mame = $_POST["mame"];
+
+    $name = $_POST["f_name"];
     $email = $_POST["email"];
-    $password = $_POST["PASSWORD"];
+    $password = $_POST["password"];
+    $role = $_POST['user_type'];
     $confirmPassword = $_POST["repeat_password"];
-    $password = password_hash($_POST["PASSWORD"], PASSWORD_BCRYPT);
+    $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
 
-    if($_POST['PASSWORD'] == $confirmPassword) {
+    if ($_POST['password'] == $confirmPassword) {
+        if (isset($_POST['user_type'])) {
+            $userType = $_POST['user_type'];
+    
+            // Assign user based on selected user type
+            if ($userType === 'user') {
+                // Assign user as a client
+                $role = 'user';
+            } elseif ($userType === 'freelancer') {
+                // Assign user as a freelancer
+                $role = 'freelancer';
+            } else {
+                // Handle other cases if needed
+                echo 'Invalid user type selected.';
+                exit;
+            }
+        }
 
-        $sql = "INSERT INTO user ( mame, email, PASSWORD) VALUES (?,?,?)";
+        $sql = "INSERT INTO user ( name, email, password, role) VALUES (?,?,?,?)";
 
         // préparez une requête stmt (mysqli_prepare)
         $stmt = mysqli_prepare($conn, $sql);
@@ -34,7 +51,7 @@ function signup()
         // liez le paramètre (mysqli_stmt_bind_param)
 
 
-        mysqli_stmt_bind_param($stmt, 'sss', $mame,  $email, $password);
+        mysqli_stmt_bind_param($stmt, 'ssss', $name, $email, $password, $role);
 
         // exécutez la requête préparée (mysqli_stmt_execute )
 
@@ -51,9 +68,9 @@ function signup()
 
         mysqli_stmt_close($stmt);
         mysqli_close($conn);
-//performance securite
+        //performance securite
 
-    }else{
+    } else {
         echo "pasword dosen't match";
     }
 
@@ -61,71 +78,139 @@ function signup()
 }
 
 function test_input($data)
-    {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+
+// function login()
+// {
+
+//     global $conn;
+
+//     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//         $email = test_input($_POST["email"]);
+//         $password = test_input($_POST["PASSWORD"]);
+
+//         // Prepare a query with a single parameter for email
+//         $sql = "SELECT * FROM user WHERE email = ?";
+
+//         // Prepare the query
+//         $stmt = mysqli_prepare($conn, $sql);
+
+//         // Bind the parameter (only for email)
+//         mysqli_stmt_bind_param($stmt, 's', $email);
+
+//         // Execute the prepared query
+//         mysqli_stmt_execute($stmt);
+
+//         // Get the result (mysqli_stmt_get_result)
+//         $result = mysqli_stmt_get_result($stmt);
+
+//         // Check if a row is fetched
+//         if ($row = mysqli_fetch_assoc($result)) {
+//             // Verify the password
+//             $role = $row['role'];
+//             $_SESSION['role'] = $row['role'];
+//             $_SESSION['id'] = $row['id'];
+//             $_SESSION['name'] = $row['name']; 
+
+//             echo $role;
+
+//             if (password_verify($password, $row['PASSWORD'])) {
+//                 // Set common session variables
+            
+
+//                 if ($role == "user") {
+//                     // $_SESSION['role'] = 'user';
+//                     header("location:index.php");
+
+//                 } 
+                
+//                 if ($role == 'admin') {
+//                     // Set admin-specific session variables
+//                     // $_SESSION["role"] = "admin";
+
+//                     header("location: dashboard.php");
+
+//                     // Check if email is set and set cookies
+//                     // if (isset($_POST['email'])) {
+//                     //     setcookie('email', $email, time() + 2 * 60, '/');
+//                     //     setcookie('PASSWORD', $password, time() + 2 * 60, '/');
+//                     //     header('location: index.php');
+//                     // }
+
+//                 } 
+//             } else {
+//                 echo "Invalid password";
+//             }
+//         } 
+//         // else {
+//         //     echo "Invalid email";
+//         // }
+//     }
+// }
 
 
 function login()
 {
     global $conn;
-    if ($_SERVER["REQUEST_METHOD"] == "POST"){
-         
 
-    
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $email = test_input($_POST["email"]);
+        $password = test_input($_POST["password"]);
 
-    $email = test_input($_POST["email"]);
-    $password = test_input($_POST["PASSWORD"]);
+        // Prepare a query with a single parameter for email
+        $sql = "SELECT * FROM user WHERE email = ?";
 
-    // préparez une requête avec un seul paramètre pour l'e-mail
-    $sql = "SELECT * FROM  user WHERE email = ?";
+        // Prepare the query
+        $stmt = mysqli_prepare($conn, $sql);
 
+        // Bind the parameter (only for email)
+        mysqli_stmt_bind_param($stmt, 's', $email);
 
-    // préparez la requête
-    $stmt = mysqli_prepare($conn, $sql);
+        // Execute the prepared query
+        mysqli_stmt_execute($stmt);
 
+        // Get the result (mysqli_stmt_get_result)
+        $result = mysqli_stmt_get_result($stmt);
 
-    // liez le paramètre (uniquement pour l'e-mail)
-    mysqli_stmt_bind_param($stmt, 's',$email);
-
-    // exécutez la requête préparée
-   mysqli_stmt_execute($stmt);
-
-    // obtenez le résultat (mysqli_stmt_get_result)
-    $result = mysqli_stmt_get_result($stmt);
-    //bolieen 
-
-    if($row = mysqli_fetch_assoc($result)) {
-
-        if(password_verify($password, $row['PASSWORD'])){
-
-        
+        // Check if a row is fetched
+        if ($row = mysqli_fetch_assoc($result)) {
+            // Verify the password
+            // $role = $row['role'];
+            $_SESSION['role'] = $row['role'];
             $_SESSION['id'] = $row['id'];
-            $_SESSION['mame'] = $row['mame'];
+            $_SESSION['name'] = $row['name'];
+            $role = $_SESSION['role'];
 
-            if(isset($_POST['email'])){
-                setcookie('email', $email, time() + 2*60,'/');
-                setcookie('PASSWORD', $password, time() + 2*60,'/');
-                header('location: index.php');
+
+            if (password_verify($password, $row['password'])) {
+                // Set common session variables
+                echo $role;
+                if ($role == "user") {
+                
+                    header("location:index.php");
+
+                } elseif ($role == "admin") {
+                   
+                    // Set admin-specific session variables
+                    // $_SESSION["role"] = "admin";
+                    header("location:dashboard.php");
+                }  
+            } else {
+                echo "Invalid password";
             }
-
-   
-        }else{
-            echo "password invalid ";
-        }
-    }else {
-        echo "emal invalid";
-    }
-
-   
+        } 
+        // else {
+        //     echo "Invalid email";
+        // }
     }
 }
 
-
- 
 
 
 ?>

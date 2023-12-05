@@ -6,17 +6,17 @@ if(isset($_POST["add_user"])){
  
 
   
-   $mame = test_input($_POST['mame']);
+   $name = test_input($_POST['name']);
    $PASSWORD = test_input($_POST['PASSWORD']);
    $email = test_input($_POST['email']);
  
 
 
-   if($mame == "" || empty($mame)){
+   if($name == "" || empty($name)){
     header('location:freelances.php?message=you need to fill in the name');
    }else{
-    $query = "INSERT into `user` (`mame`, `PASSWORD`, `email` ) 
-    values ( '$mame', '$PASSWORD', '$email' )";
+    $query = "INSERT into `user` (`name`, `PASSWORD`, `email` ) 
+    values ( '$name', '$PASSWORD', '$email' )";
     
     $result = mysqli_query($conn,$query);
     if(!$result){

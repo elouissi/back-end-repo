@@ -104,7 +104,7 @@ include ("connexion.php")
                         <td><?php echo $row['name_cat']?></td>
                      
                          
-                        <td><a href="modifer_free.php?id_cat=<?php echo $row['id_cat'] ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style=" margin:10px" >modifier</a></td>
+                        <td><a href="modifier_cat.php?id_cat=<?php echo $row['id_cat'] ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style=" margin:10px" >modifier</a></td>
                         <td><a href="supprimer_cat.php?id_cat=<?php echo $row['id_cat'] ; ?>" class="btn flex items-center text-center  p-2 text-red-900 rounded-lg  dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="margin:10px " >supprimer</a></td>
                         
                         
