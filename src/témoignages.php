@@ -13,7 +13,10 @@ include ("connexion.php")
 </head>
 
 
-
+<?php
+    session_start();
+    if ($_SESSION['role'] == "admin" ):
+    ?>
 <body class="overflow-x-hidden  dark:bg-gray-900 dark:text-white">
    
 <?php
@@ -45,7 +48,7 @@ include ("connexion.php")
         </thead>
         <tbody>
             <?php
-            $query = " SELECT  testimoniales.* , user.mame FROM testimoniales
+            $query = " SELECT  testimoniales.* , user.name FROM testimoniales
             LEFT JOIN user ON testimoniales.Id_Testimonials = user.id";
             $result = mysqli_query($conn, $query);
 
@@ -57,7 +60,7 @@ include ("connexion.php")
                     <tr>
                     <td><?php echo $row['Id_Testimonials']?></td>
                     <td><?php echo $row['commente']?></td>
-                        <td><?php echo $row['mame']?></td>                         
+                        <td><?php echo $row['name']?></td>                         
                          <td><a href="supprimer_tem.php?IdFreelance=<?php echo $row['Id_Testimonials'] ; ?>" class="btn flex items-center text-center  p-2 text-red-900 rounded-lg  dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="margin:10px " >supprimer</a></td>
  
                     </tr>
@@ -82,6 +85,7 @@ include ("connexion.php")
  
         </section>
     </div>
+    <?php endif; ?>
 
 
 

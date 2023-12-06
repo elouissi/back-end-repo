@@ -3,7 +3,7 @@
         <img class="h-8 mx-5  dark:rotate-180  dark:bg-slate-300 dark:rounded-full " src="../images/dar_mode_icon.png" alt="icon">
     </span>
         <img class="h-auto  rounded-full" src="../images/cardYassine.jpg" alt="admin">
-        <span class="text-lg self-center ">yassine eloussi</span>
+        <span class="text-lg self-center "><?php echo   $_SESSION['name'] ; ?></span>
     </header>
   <div class="flex flex-row justify-start py-8 dark:bg-gray-900">
     <!-- side bar -->
@@ -71,6 +71,9 @@
                             </svg>
                         </span>
                     </li>
+                    <?php
+                    if($_SESSION['role'] == "admin" ):
+                    ?>
                     <li>
                         <a href="dashboard.php"
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
@@ -84,6 +87,7 @@
                             </svg>
                         </a>
                     </li>
+                    <?php endif ?>
                     <li>
                         <a href="projects.php"
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
@@ -99,6 +103,10 @@
                             </svg>
                         </a>
                     </li>
+                    <?php
+ 
+    if ($_SESSION['role'] == "admin"):
+    ?>
                     <li>
                         <a href="témoignages.php"
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
@@ -149,10 +157,13 @@
 
                         </a>
                     </li>
+                    <?php
+                    endif;
+                    ?>
 
                     <li class="bg-white  rounded-lg  ">
 
-                        <a href="sign_in.php"
+                        <a href="logout.php"
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"

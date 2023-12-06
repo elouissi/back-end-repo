@@ -12,7 +12,10 @@ include ("connexion.php")
     <link rel="stylesheet" href="../src/style.css">
 </head>
 
-
+<?php
+    session_start();
+    if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "freelancer" ):
+    ?>
 
 <body class="overflow-x-hidden  dark:bg-gray-900 dark:text-white">
    
@@ -186,6 +189,7 @@ include ("connexion.php")
  
         </section>
     </div>
+    <?php endif ?>
 
 
 

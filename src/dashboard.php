@@ -15,7 +15,10 @@ include ("connexion.php");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../dist/output.css" rel="stylesheet">
 </head>
-
+<?php
+    session_start();
+    if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "freelancer" ):
+    ?>
 <body class="overflow-x-hidden  ">
     <?php
     include ("sidebar.php");
@@ -24,6 +27,7 @@ include ("connexion.php");
     ?>
   
     <!-- end side bar -->
+   
     <div class="flex-grow flex flex-col pb-10 dark:bg-gray-900 dark:text-white">
 
       <section class="flex flex-col">
@@ -123,6 +127,15 @@ include ("connexion.php");
     </div>
 
   </div>
+  <?php else: ?>
+    <?php
+        // Redirect to a specific location if the role is neither admin nor freelancer
+        header("Location: index.php");
+        exit; // Ensure that the script stops here after the redirect
+    ?>
+  <?php
+  endif;
+  ?>
  
  
 

@@ -38,9 +38,13 @@ require 'script.php';
 
         <form action="script.php" method="POST">
 
-
-
           <div class="relative mb-10">
+            <div class="ml-5" style="margin-left: 194px;">
+            <img src="../images/profil.png" alt="photo de profil" style="height: 90px; width: 90px;" >  
+
+              <input type="file" name="" id="">
+        </div>
+            
             <label>
               Full name<span class="text-teal-500 ml-2">*</span>
             </label>
@@ -83,8 +87,7 @@ require 'script.php';
             <div class="flex flex-row items-center">
               <input id="user_type-2" type="radio" value="freelancer" name="user_type"
                 class=" flex-row w-4 h-4 mt-3 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-              <label for="user_type-2" class="ml-3 text-sm font-medium text-white dark:text-gray-300">freelancer
-              </label>
+              <label for="user_type-2" class="ml-3 text-sm font-medium text-white dark:text-gray-300">freelancer</label>
             </div>
 
 

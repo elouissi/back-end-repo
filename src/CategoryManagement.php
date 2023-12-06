@@ -13,7 +13,10 @@ include ("connexion.php")
 </head>
 
 
-
+<?php
+    session_start();
+    if ($_SESSION['role'] == "admin" ):
+    ?>
 <body class="overflow-x-hidden  dark:bg-gray-900 dark:text-white">
    
 <?php
@@ -148,6 +151,9 @@ include ("connexion.php")
  
         </section>
     </div>
+    <?php
+    endif;
+    ?>
 
 
 

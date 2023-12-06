@@ -29,7 +29,7 @@ if(isset($_POST["add_freelancer"])){
 
 
 
-$query = "SELECT mame FROM user";
+$query = "SELECT name FROM user";
 $result = mysqli_query($conn, $query);
 if (!$result) {
     die("Error in SQL query: " . mysqli_error($conn) . "<br>Query: " . $query);
@@ -47,14 +47,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 
     // Assuming you have a column named 'UserID' in the 'users' table
-    $query = "SELECT id FROM user WHERE mame = '$selectedUsername'";
+    $query = "SELECT id FROM user WHERE name = '$selectedUsername'";
 
     $result = mysqli_query($conn, $query);
 
     if ($result && $row = mysqli_fetch_assoc($result)) {
         $userID = $row['id'];
 
-        $sql = "INSERT INTO freelances (name_freelince, skills, mame) VALUES ('$name_freelince', '$skills', '$username')";
+        $sql = "INSERT INTO freelances (name_freelince, skills, name) VALUES ('$name_freelince', '$skills', '$username')";
 
         if (mysqli_query($conn, $sql)) {
             header("location:freelancers.php");
@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-$sql = "SELECT f.Id_freelance, f.name_freelince, f.skills, u.mame
+$sql = "SELECT f.Id_freelance, f.name_freelince, f.skills, u.name
         FROM freelances f
         JOIN usersu ON f.Id_freelance = u.id";
 $result = mysqli_query($conn, $sql);

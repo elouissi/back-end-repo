@@ -182,23 +182,22 @@ function login()
         if ($row = mysqli_fetch_assoc($result)) {
             // Verify the password
             // $role = $row['role'];
-            $_SESSION['role'] = $row['role'];
-            $_SESSION['id'] = $row['id'];
-            $_SESSION['name'] = $row['name'];
-            $role = $_SESSION['role'];
+         
 
 
             if (password_verify($password, $row['password'])) {
+                $_SESSION['role'] = $row['role'];
+                $_SESSION['id'] = $row['id'];
+                $_SESSION['name'] = $row['name'];
+                $role = $_SESSION['role'];
                 // Set common session variables
-                echo $role;
+                
                 if ($role == "user") {
                 
                     header("location:index.php");
 
-                } elseif ($role == "admin") {
-                   
-                    // Set admin-specific session variables
-                    // $_SESSION["role"] = "admin";
+                } else {
+ 
                     header("location:dashboard.php");
                 }  
             } else {

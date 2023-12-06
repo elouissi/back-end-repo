@@ -43,12 +43,12 @@ if (mysqli_num_rows($result) < 0) {
 <?php 
 if(isset($_POST['ajouterDB'])){
     $id = $_POST['id'];
-    $mame = $_POST['mame'];
-    $PASSWORD = $_POST['PASSWORD'];
+    $name = $_POST['name'];
+    $password = $_POST['password'];
     $email = $_POST['email'];
     
 
-    $query ="update `user` set `id` = '$id', `mame` = '$mame', `PASSWORD` = '$PASSWORD', `email` = '$email' 
+    $query ="update `user` set `id` = '$id', `name` = '$name', `password` = '$password', `email` = '$email' 
     where `id` = $id";
     $result = mysqli_query($conn, $query);
 
@@ -64,8 +64,8 @@ if(isset($_POST['ajouterDB'])){
 
           <form action="modifer_user.php?id_new= <?php echo  $id ;?>" method="post">
           <input type="hidden" name="id" id="id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="IdFreelance" value="<?php echo $row['id']?>" >
-            <input type="mame" name="mame" id="mame" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="name of user"  value="<?php echo $row['mame']?>" >
-                   <input type="PASSWORD" name="PASSWORD" id="PASSWORD" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="PASSWORD" value="<?php echo $row['PASSWORD']?>" >
+            <input type="name" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="name of user"  value="<?php echo $row['name']?>" >
+                   <input type="password" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="password" value="<?php echo $row['password']?>" >
           <input type="text" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="email" value="<?php echo $row['email'] ?>" >
            
            
