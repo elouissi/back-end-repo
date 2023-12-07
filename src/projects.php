@@ -14,20 +14,38 @@ include ("connexion.php")
 
 <?php
     session_start();
-    if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "freelancer" ):
+    if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "freelancer" || $_SESSION['role'] == "user" ):
     ?>
 
 <body class="overflow-x-hidden  dark:bg-gray-900 dark:text-white">
    
 <?php
     include ("sidebar.php");
-    $query_select_all="SELECT id_project, titre, name_cat FROM project INNER JOIN 
-    categores on project.id_cat=categores.id_cat";
+    $query_select_all="SELECT id_project, titre, name_cat, name FROM project  JOIN 
+    categores on project.id_cat=categores.id_cat JOIN
+    user on project.id = user.id ";
+
+    //   $sql = "SELECT projects.ProjectTitle,
+    // users.username,
+    // categories.CategoryName,
+    // souscategories.SousCategoryName
+    //     FROM
+    //         projects
+    //     JOIN
+    //         users ON projects.UserID = users.UserID
+    //     JOIN
+    //         categories ON projects.CategoryID = categories.CategoryID
+    //     JOIN
+    //         souscategories ON projects.SousCategoryID = souscategories.SousCategoryID";
    
     $result = mysqli_query($conn, $query_select_all);
     
     $query = "SELECT name_cat, id_cat FROM categores";
     $result_cat = mysqli_query($conn, $query);
+
+    $query_user = "SELECT name, id FROM user";
+    $result_user = mysqli_query($conn, $query_user);
+
     ?>
  
         <!-- end side bar -->
@@ -83,6 +101,7 @@ include ("connexion.php")
                                 
                              
                                 </select>
+       
                                 <!-- <select id="category" name="username"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                              
@@ -93,6 +112,21 @@ include ("connexion.php")
                 <div>
                          <input type="text" name="description" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="description"  >
                     </div>
+                    <select id="category" name="name"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                    <option selected disabled>selectionner votre user</option>
+                                     <?php
+
+                                            while ($row = mysqli_fetch_assoc($result_user)):
+                                               $name=$row['name'];
+                                               $id=$row['id'];
+                                    ?> 
+                                    <option value="<?=$id?>"><?=$name?></option>
+
+                                    <?php endwhile;  ?>
+                                
+                             
+                                </select>
                  
                     </form>
                   
@@ -118,6 +152,7 @@ include ("connexion.php")
             <!-- <th>id_sub_cat</th>
             <th>id</th> -->
             <th>description</th>
+            <th>nom d'utilisateur</th>
             
             <th>ajouter</th>
             <th>supprimer</th>
@@ -126,8 +161,9 @@ include ("connexion.php")
         </thead>
         <tbody>
             <?php
-            $query = "SELECT id_project, titre,`description`, name_cat  FROM project  LEFT JOIN
-            categores on project.id_cat=categores.id_cat LIMIT 0,100";
+            $query = "SELECT id_project, titre,description, name_cat, name FROM project  JOIN 
+            categores on project.id_cat=categores.id_cat JOIN
+            user on project.id = user.id   ";
           $result = mysqli_query($conn, $query);
 
             if (!$result){
@@ -145,6 +181,7 @@ include ("connexion.php")
                         <td><?php echo $row['name_cat']?></td>
                     
                          <td><?php  echo $row['description']  ?></td>
+                         <td><?php  echo $row['name']  ?></td>
                          
                         <td><a href="modifer_pro.php?id_project=<?php echo $row['id_project'] ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style=" margin:10px" >modifier</a></td>
                         <td><a href="supprimer_pro.php?id_project=<?php echo $row['id_project'] ; ?>" class="btn flex items-center text-center  p-2 text-red-900 rounded-lg  dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"style="margin:10px " >supprimer</a></td>
@@ -189,7 +226,7 @@ include ("connexion.php")
  
         </section>
     </div>
-    <?php endif ?>
+   
 
 
 
@@ -201,6 +238,15 @@ include ("connexion.php")
     <script src="../javascript/dashUser.js"></script>
 
 </body>
+<?php else: ?>
+    <?php
+        // Redirect to a specific location if the role is neither admin nor freelancer
+        header("Location: index.php");
+        exit; // Ensure that the script stops here after the redirect
+    ?>
+  <?php
+  endif;
+  ?>
 
 </html>
 

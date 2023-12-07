@@ -13,7 +13,10 @@ include ("script.php")
     <link rel="stylesheet" href="../src/style.css">
 </head>
 
-
+<?php
+    
+    if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "freelancer" ):
+    ?>
 
 <body class="overflow-x-hidden  dark:bg-gray-900 dark:text-white">
    
@@ -24,6 +27,7 @@ include ("script.php")
         <!-- end side bar -->
 
    
+
  
     <!-- end side bar -->
 
@@ -164,6 +168,15 @@ include ("script.php")
     <script src="../javascript/dashUser.js"></script>
 
 </body>
+<?php else: ?>
+    <?php
+        // Redirect to a specific location if the role is neither admin nor freelancer
+        header("Location: index.php");
+        exit; // Ensure that the script stops here after the redirect
+    ?>
+  <?php
+  endif;
+  ?>
 
 </html>
 
