@@ -36,15 +36,16 @@ require 'script.php';
         <h1 class="text-center text-gray-400 font-light mb-10 text-2xl font-sans block">
           Sign Up for Free</h1>
 
-        <form action="script.php" method="POST">
+        <form action="script.php" method="POST" enctype="multipart/form-data">
 
           <div class="relative mb-10">
             <div class="ml-5" style="margin-left: 194px;">
             <img src="../images/profil.png" alt="photo de profil" style="height: 90px; width: 90px;" >  
 
-              <input type="file" name="" id="">
+              <input type="file" name="image" id="">
         </div>
-            
+          </div>
+        <div class="relative mb-10">
             <label>
               Full name<span class="text-teal-500 ml-2">*</span>
             </label>

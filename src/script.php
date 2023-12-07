@@ -19,7 +19,7 @@ function signup()
 {
     global $conn;
 
-
+    $image = $_FILES["image"]["name"];
     $name = $_POST["f_name"];
     $email = $_POST["email"];
     $password = $_POST["password"];
@@ -44,8 +44,12 @@ function signup()
                 exit;
             }
         }
+        if(file_exists("uploads/".$_FILES['image']['name'])){
+            echo "already exist";
 
-        $sql = "INSERT INTO user ( name, email, password, role) VALUES (?,?,?,?)";
+        }else{
+            
+        $sql = "INSERT INTO user ( name, email, password, role, image) VALUES (?,?,?,?,?)";
 
         // préparez une requête stmt (mysqli_prepare)
         $stmt = mysqli_prepare($conn, $sql);
@@ -53,13 +57,14 @@ function signup()
         // liez le paramètre (mysqli_stmt_bind_param)
 
 
-        mysqli_stmt_bind_param($stmt, 'ssss', $name, $email, $password, $role);
+        mysqli_stmt_bind_param($stmt, 'sssss', $name, $email, $password, $role, $image);
 
         // exécutez la requête préparée (mysqli_stmt_execute )
 
         $result = mysqli_stmt_execute($stmt);
 
         if ($result) {
+            move_uploaded_file($_FILES['image']['tmp_name'],"uploads/".$_FILES["image"]["name"]);
             header("Location: log_in.php");
         } else {
             echo "Error";
@@ -70,6 +75,9 @@ function signup()
 
         mysqli_stmt_close($stmt);
         mysqli_close($conn);
+
+        }
+
         //performance securite
 
     } else {

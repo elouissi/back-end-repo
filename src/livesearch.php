@@ -10,7 +10,7 @@ if(isset($_POST['input'])) {
 
     if($input !== 'all') {
 
-        $query = "SELECT id_project, titre,description, name_cat, name FROM project  JOIN categores on project.id_cat=categores.id_cat JOIN user on project.id = user.id    WHERE name LIKE '%{$input}%'";
+        $query = "SELECT id_project, titre,description, name_cat, name FROM project  JOIN categores on project.id_cat=categores.id_cat JOIN user on project.id = user.id    WHERE name LIKE '%{$input}%' OR titre LIKE  '%{$input}%' ";
         $result = mysqli_query($conn, $query);
 
 

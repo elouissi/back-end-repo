@@ -89,12 +89,12 @@ include ("script.php")
            <table class=" table-auto w-full text-center whitespace-no-wrap border-spacing-2">
         <thead class="dark:bg-custom-green dark:text-black rounded-lg mb-3" >
            <th>id</th>
+           <th>profil</th>
             <th>name complet</th>
  
             <th>email</th>
             
-            <th>ajouter</th>
-            <th>supprimer</th>
+            <th colspan="2">actions</th>
 
 
         </thead>
@@ -110,6 +110,9 @@ include ("script.php")
                     ?>
                     <tr>
                     <td><?php echo $row['id']?></td>
+                    <td>
+                        <img src="<?php echo "uploads/".$row['image']?>" alt="photo de profil" class="freelancer-photo w-10 h-10 rounded-full" >
+                </td>
                     <td><?php echo $row['name']?></td>
                      
                         <td><?php echo $row['email']?></td>
