@@ -117,6 +117,23 @@
                        
                         </a>
                     </li>
+                    <?php
+ 
+    if ($_SESSION['role'] == "admin"):
+    ?>
+                    <li>
+                        <a href="offre.php"
+                            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+
+                            <span class="flex-1 ml-3 whitespace-nowrap">offres</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(137, 134, 134, 1);transform: ;msFilter:;"><path d="M20 1.999H4c-1.103 0-2 .897-2 2v18l4-4h14c1.103 0 2-.897 2-2v-12c0-1.103-.897-2-2-2zm-6 11H7v-2h7v2zm3-4H7v-2h10v2z"></path></svg>
+                            
+                       
+                        </a>
+                    </li>
+                    <?php
+                    endif;
+                    ?>
                     <li>
                         <a href="user.php"
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">

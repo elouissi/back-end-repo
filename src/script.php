@@ -4,6 +4,7 @@ require_once("connexion.php");
 
 session_start();
 
+
 if (isset($_POST['submit'])) {
     signup();
 
@@ -11,6 +12,7 @@ if (isset($_POST['submit'])) {
 if (isset($_POST["login"])) {
     login();
 }
+
 
 // setcokie(name, value, expire, path, domain, secure, httponty)
 function signup()

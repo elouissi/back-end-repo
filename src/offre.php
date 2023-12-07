@@ -5,7 +5,7 @@ include("connexion.php")
 <html>
 
 <head>
-    <title>dashboard</title>
+    <title></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../dist/output.css" rel="stylesheet">
@@ -21,9 +21,9 @@ include("connexion.php")
 
     <?php
     include("sidebar.php");
-    $query_select_all="SELECT Id_freelance, name_freelince, skills, name FROM freelances INNER JOIN 
-    user on freelances.id=user.id";
-    $query = "SELECT id,name FROM user";
+    $query_select_all="SELECT Id_offer, Amount, Deadline, titre FROM offre INNER JOIN 
+    project on offre.id_project	=project.id_project	";
+    $query = "SELECT id_project,titre FROM project";
     $result = mysqli_query($conn, $query);
     
    
@@ -40,7 +40,7 @@ include("connexion.php")
     <!-- end side bar -->
 
     <section class="flex-grow lg:w-9/12 flex flex-col gap-14 px-2 ">
-        <h1 class="font-bold text-4xl text-center">freelances</h1>
+        <h1 class="font-bold text-4xl text-center">offres</h1>
         <button id="btnmodal"
             class="flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"
             style="width: 105px ;padding-left:35px">ADD </button>
@@ -59,7 +59,7 @@ include("connexion.php")
                         <div
                             class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                add freelances
+                                add offres
                             </h3>
                             <button id="close-modal" type="button"
                                 class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -78,26 +78,27 @@ include("connexion.php")
 
 
                                 <div>
-                                    <input type="name_freelince" name="name_freelince" id="name_freelince"
+                                    <input type="Amount" name="Amount" id="Amount"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white"
-                                        placeholder="name_freelince">
+                                        placeholder="Amount">
                                 </div>
                                 <div>
-                                    <input type="skills" name="skills" id="skills"
+                                    <input type="Deadline" name="Deadline" id="Deadline"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white"
-                                        placeholder="skills">
+                                        placeholder="Deadline">
                                 </div>
+                       
 
-                                <select id="category" name="username"
+                                <select id="titre_project" name="titre_project"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                     <option selected disabled>selectionner votre utilisateur</option>
                                      <?php
 
                                             while ($row = mysqli_fetch_assoc($result)):
-                                               $name_user=$row['name'];
-                                               $id_user=$row['id'];
+                                               $titre=$row['titre'];
+                                               $id_project=$row['id_project'];
                                     ?> 
-                                    <option value="<?=$id_user?>"><?=$name_user?></option>
+                                    <option value="<?=$id_project?>"><?=$titre?></option>
 
                                     <?php endwhile;  ?>
                                 
@@ -126,11 +127,11 @@ include("connexion.php")
 
         <table class=" table-auto w-full text-center whitespace-no-wrap border-spacing-2">
             <thead class="dark:bg-custom-green dark:text-black rounded-lg mb-3">
-                <th>Id_freelance</th>
-                <th>nom du freelancer</th>
-                <th>skills</th>
-                <th>nom d'user</th>
-
+                <th>Id_offer</th>
+                <th>montant</th>
+                <th>la date limite</th>
+                <th>titre_project</th>
+               
                 <th>ajouter</th>
                 <th>supprimer</th>
 
@@ -138,8 +139,8 @@ include("connexion.php")
             </thead>
             <tbody>
                 <?php
-                $query = " SELECT  freelances.* , user.name FROM freelances
-            left JOIN user ON freelances.Id_freelance = user.id";
+                $query = " SELECT  offre.* , project.titre FROM offre
+            left JOIN project ON offre.Id_offre = project.id_project";
 
                 // SELECT users.id_user,users.name,users.address,users.email,users.password,ville.ville FROM users    
 //                  inner join ville on users.id_ville = ville.id"
@@ -155,22 +156,22 @@ include("connexion.php")
                         <tr>
 
                             <td>
-                                <?php echo $row['Id_freelance'] ?>
+                                <?php echo $row['Id_offer'] ?>
                             </td>
                             <td>
-                                <?php echo $row['name_freelince'] ?>
+                                <?php echo $row['Amount'] ?>
                             </td>
                             <td>
-                                <?php echo $row['skills'] ?>
+                                <?php echo $row['Deadline'] ?>
                             </td>
                             <td>
-                                <?php echo $row['name'] ?>
+                                <?php echo $row['titre'] ?>
                             </td>
 
-                            <td><a href="modifier_free.php?Id_freelance=<?php echo $row['Id_freelance']; ?>"
+                            <td><a href="modifier_free.php?Id_offer=<?php echo $row['Id_offer']; ?>"
                                     class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"
                                     style=" margin:10px">modifier</a></td>
-                            <td><a href="supprimer_free.php?Id_freelance=<?php echo $row['Id_freelance']; ?>"
+                            <td><a href="supprimer_free.php?Id_offer=<?php echo $row['Id_offer']; ?>"
                                     class="btn flex items-center text-center  p-2 text-red-900 rounded-lg  dark:bg-custom-green hover:bg-gray-100 dark:hover:bg-gray-700 group"
                                     style="margin:10px ">supprimer</a></td>
 
