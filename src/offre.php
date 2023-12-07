@@ -49,7 +49,7 @@ include("connexion.php")
         <!-- Modal toggle -->
 
         <!-- Main modal -->
-        <form action="ajouterdbfre.php" method="POST">
+        <form action="ajouter_offre.php" method="POST">
             <div id="default-modal" tabindex="-1" aria-hidden="true"
                 class=" hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0  max-h-full">
                 <div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -83,13 +83,13 @@ include("connexion.php")
                                         placeholder="Amount">
                                 </div>
                                 <div>
-                                    <input type="Deadline" name="Deadline" id="Deadline"
+                                    <input type="date" name="Deadline" id="Deadline"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white"
                                         placeholder="Deadline">
                                 </div>
                        
 
-                                <select id="titre_project" name="titre_project"
+                                <select id="titre" name="titre"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                     <option selected disabled>selectionner votre utilisateur</option>
                                      <?php
@@ -117,7 +117,7 @@ include("connexion.php")
                             class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
                             <button id="last_btn_close" data-modal-hide="default-modal" type="button"
                                 class="btn btn-secondary text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
-                            <input name="add_freelancer" value="add" type="submit"
+                            <input name="add_offres" value="add" type="submit"
                                 class="btn btn-success ms-3  text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         </div>
                     </div>
