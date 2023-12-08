@@ -1,4 +1,3 @@
-
 var btn = document.getElementById("btnmodal")
 var x =document.getElementById("close-modal")
 var btnmodal_two =document.getElementById("btnmodal_two")

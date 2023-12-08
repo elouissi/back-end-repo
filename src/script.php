@@ -191,14 +191,14 @@ function login()
         // Check if a row is fetched
         if ($row = mysqli_fetch_assoc($result)) {
             // Verify the password
-            // $role = $row['role'];
-         
+    
 
 
             if (password_verify($password, $row['password'])) {
                 $_SESSION['role'] = $row['role'];
                 $_SESSION['id'] = $row['id'];
                 $_SESSION['name'] = $row['name'];
+                $_SESSION['image'] = $row['image'];
                 $role = $_SESSION['role'];
                 // Set common session variables
                 

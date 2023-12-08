@@ -2,7 +2,7 @@
         <span id="dar_mode_btn">
         <img class="h-8 mx-5  dark:rotate-180  dark:bg-slate-300 dark:rounded-full " src="../images/dar_mode_icon.png" alt="icon">
     </span>
-        <img class="h-auto  rounded-full" src="../images/cardYassine.jpg" alt="admin">
+    <img src="<?php echo "uploads/".$_SESSION['image']?>" alt="photo de profil" class="freelancer-photo w-10 h-10 rounded-full" >
         <span class="text-lg self-center "><?php echo   $_SESSION['name'] ; ?></span>
     </header>
   <div class="flex flex-row justify-start py-8 dark:bg-gray-900">

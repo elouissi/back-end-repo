@@ -24,7 +24,7 @@ var_dump($name_cat);
         die("query failed".mysqli_error($conn));
     }
     else{
-        header('location:projects.php?insert_msg=You data has benn added succes');
+        header('location:search.php?insert_msg=You data has benn added succes');
     }
    }
 }

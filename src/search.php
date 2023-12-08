@@ -12,7 +12,7 @@ require("statistiques.php");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../dist/output.css">
   <link rel="stylesheet" href="input.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../dist/style.css">
   <link rel="icon" type="image/png" href="../images/favicon.png">
 </head>
 
@@ -117,10 +117,123 @@ require("statistiques.php");
   </section>
   <hr>
   <!-- hadi diyal le texte -->
-  <div class=" flex justify-end  ">
-    <p class="text-xs m-6 dark:text-white">+1000 results</p>
+  <?php
+  $query_select_all="SELECT id_project, titre, name_cat, name FROM project  JOIN 
+    categores on project.id_cat=categores.id_cat JOIN
+    user on project.id = user.id ";
+
+    //   $sql = "SELECT projects.ProjectTitle,
+    // users.username,
+    // categories.CategoryName,
+    // souscategories.SousCategoryName
+    //     FROM
+    //         projects
+    //     JOIN
+    //         users ON projects.UserID = users.UserID
+    //     JOIN
+    //         categories ON projects.CategoryID = categories.CategoryID
+    //     JOIN
+    //         souscategories ON projects.SousCategoryID = souscategories.SousCategoryID";
+   
+    $result = mysqli_query($conn, $query_select_all);
+    
+    $query = "SELECT name_cat, id_cat FROM categores";
+    $result_cat = mysqli_query($conn, $query);
+
+    $query_user = "SELECT name, id FROM user";
+    $result_user = mysqli_query($conn, $query_user);
+
+    ?>
+  <form action="ajouterpro.php" method="post">
+<div id="modal" tabindex="-1" aria-hidden="true" class="  hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0  max-h-full">
+    <div class="relative p-4 w-full max-w-2xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  add projects
+                </h3>
+                <button id="close-modal" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class=" md:p-5 space-y-4">
+            <form action="">
+               
+                <div>
+                        <input type="text" name="titre" id="titre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="titre"  >
+                    </div>
+                    <select id="category" name="name_cat"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                    <option selected disabled>selectionner votre categories</option>
+                                     <?php
+
+                                            while ($row = mysqli_fetch_assoc($result_cat)):
+                                               $name_cat=$row['name_cat'];
+                                               $id_cat=$row['id_cat'];
+                                    ?> 
+                                    <option value="<?=$id_cat?>"><?=$name_cat?></option>
+
+                                    <?php endwhile;  ?>
+                                
+                             
+                                </select>
+       
+                                <!-- <select id="category" name="username"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                             
+                                
+                             
+                                </select> -->
+                
+                <div>
+                         <input type="text" name="description" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="description"  >
+                    </div>
+                    
+      <?php 
+     if(isset($_SESSION['id'])):?>
+                    
+                <div>
+                         <input type="text" name="name" id="description" class=" hidden bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500   w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="<?php echo $_SESSION['id']?>"  value="<?php echo $_SESSION['id']?>" >
+                    </div>
+                    <?php endif; ?>
+                    
+                 
+                    </form>
+                  
+
+               
+                
+            </div>
+            <!-- Modal footer -->
+            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+           
+            <input   name="add_project" value="add" type="submit" class="btn btn-success ms-3  text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> 
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+ 
+  <div style=" display: flex; justify-content: space-between;">
+  <?php
+          
+              if( isset($_SESSION['role']) &&
+               $_SESSION['role'] == "user"  ):
+
+    
+                ?>
+  <button
+  id="btnmodal" class="flex h-12 w-12 m-6 justify-center drop-shadow-md bg-custom-green- rounded-md bg-opacity-50 text-gray-50 items-center" style="width: 120px;" >créer un projet</button>
+  <?php endif; ?>
+        <p class="text-xs m-6 dark:text-white"> + <?= count_projects() ?> results</p>
   </div>
-  <div id="searchresult"></div>
+ 
   <!-- hada dak side bar diyal disck-top  -->
   <main class="flex flex-row w-1/1 gap-2">
     <!-- hadi diyal dak side bar li 3la lissr -->
@@ -323,9 +436,12 @@ require("statistiques.php");
     </script>
  
 
-  <script src="../javascript/script.js"></script>
-  <script src="../javascript/jquery.js"></script>
+ <script src="../javascript/jquery.js"></script>
+    <script src="../javascript/dashboard.js"></script>
+    <script src="../javascript/script.js"></script>
+     <script src="../javascript/dashUser.js"></script>
   <script src="../javascript/serch.js"></script>
+  <script src="../javascript/projects.js"></script>
 </body>
 
 </html>
