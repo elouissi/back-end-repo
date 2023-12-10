@@ -11,11 +11,11 @@ var list = document.getElementById("list")
 var btn2 =document.getElementById("btn2")
 var btn3 =document.getElementById("btn3")
 var select =document.querySelector(".selection")
-btn2.addEventListener("click",()=>{
+btn2 && btn2.addEventListener("click",()=>{
     
     select.classList.toggle("hidden")
 })
- btn3.addEventListener("click",()=>{
+btn3 && btn3.addEventListener("click",()=>{
     select.classList.toggle("hidden")
  })
  

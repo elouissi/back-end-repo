@@ -200,7 +200,7 @@ function login()
                 $_SESSION['name'] = $row['name'];
                 $_SESSION['image'] = $row['image'];
                 $role = $_SESSION['role'];
-                // Set common session variables
+                // Set common session variables!? 
                 
                 if ($role == "user") {
                 

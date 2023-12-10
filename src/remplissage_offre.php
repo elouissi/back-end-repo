@@ -2,6 +2,8 @@
 include("connexion.php");
 require 'script.php';
 require("statistiques.php");
+
+ 
 ?>
 <!doctype html>
 <html>
@@ -12,331 +14,21 @@ require("statistiques.php");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../dist/output.css">
   <link rel="stylesheet" href="input.css">
+  <link rel="stylesheet" href="../dist/single_page_pro.css">
   <link rel="stylesheet" href="../dist/style.css">
   <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  
 </head>
 
 <body class="overflow-x-hidden dark:bg-slate-900">
-  <!-- Header -->
-  <?php
-  include("header.php")
-    ?>
-  <!-- end Header -->
  
-  <!-- fiha dik l categorie o nav-bar 2 li fih  la list -->
-  <section class="dark:bg-slate-900">
-    <div class="items-center gap-2 ml-8 h-8 md:hidden dark:bg-slate-800">
-      <button id="btnlist" class="flex flex-row">
-        <h1>Browse by Category</h1>
-        <div class="m-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
-            <path d="M1 1L7 8.5L13 1" stroke="#05C50D" />
-          </svg>
-        </div>
-      </button>
-    </div>
-
-    <ul id="list" class="block justify-around text-xs bg-gray-100 p-3 md:flex lg:flex dark:bg-slate-800 dark:text-white">
-      <a href="">
-        <li class="mt-2">Technology & Programming</li>
-      </a>
-      <a href="">
-        <li class="mt-2">Writing & Translation</li>
-      </a>
-      <a href="">
-        <li class="mt-2">Design</li>
-      </a>
-      <a href="">
-        <li class="mt-2">Digital Marketing</li>
-      </a>
-      <a href="">
-        <li class="mt-2">Video, Photo & Image</li>
-      </a>
-      <a href="">
-        <li class="mt-2">Business</li>
-      </a>
-      <a href="">
-        <li class="mt-2">Music & Audio</li>
-      </a>
-      <a href="">
-        <li class="mt-2">Marketing, Branding & Sales</li>
-      </a>
-      <a href="">
-        <li class="mt-2">Social Media</li>
-      </a>
-    </ul>
-  </section>
-  <!-- hadi fiha dik recherche o selecte -->
-  <section class="flex flex-col gap-4 lg:flex-row  m-6  ">
-    <form class="flex md:justify-start justify-center items-end w-full ">
-      <div class="relative  md:w-full  lg:w-full   ">
-        <input type="text" id="hero-field" name="hero-field" placeholder="rechrcher"
-          class="h-14 w-full drop-shadow-md bg-white rounded-l-lg border bg-opacity-50 border-gray-300 focus:ring-1 focus:ring-custom-green focus:bg-transparent focus:border-custom-green text-base outline-none text- py-2 px-6 leading-8 transition-colors duration-200 ease-in-out dark:bg-slate-800" />
-      </div>
-      <button
-        class="h-14 w-1/8 inline-flex text-white bg-custom-green++ border-0 py-2 px-6 focus:outline-none bg-custom-green- rounded-r-lg text-lg items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path
-            d="M17.707 16.293L20.707 19.293C20.8807 19.4726 20.9877 19.7177 20.9877 19.9877C20.9877 20.54 20.54 20.9877 19.9877 20.9877C19.7177 20.9877 19.4726 20.8807 19.2927 20.7067L19.293 20.707L16.293 17.707C16.1193 17.5274 16.0123 17.2823 16.0123 17.0123C16.0123 16.46 16.46 16.0123 17.0123 16.0123C17.2823 16.0123 17.5273 16.1193 17.7073 16.2933L17.707 16.293ZM9.99999 1.99999C14.4183 1.99999 18 5.58171 18 9.99998C18 14.4183 14.4183 18 9.99999 18C5.58172 18 2 14.4183 2 9.99998C2 5.58171 5.58172 1.99999 9.99999 1.99999ZM9.99999 4.00001C6.68628 4.00001 3.99999 6.6863 3.99999 10C3.99999 13.3137 6.68628 16 9.99999 16C13.3137 16 16 13.3137 16 10C16 6.6863 13.3137 4.00001 9.99999 4.00001Z"
-            fill="white" />
-        </svg>
-      </button>
-    </form>
-    <form class="flex  md:justify-start justify-center items-end">
-      <div class="relative w-1/2  m-auto md:w-full lg:w-full  ">
-        <select type="text" id="hero-field"
-          class="h-14 w-full m-auto drop-shadow-md bg-white rounded-md border bg-opacity-50 border-gray-300 focus:ring-1 focus:ring-custom-green focus:bg-transparent focus:border-custom-green text-base outline-none text-gray-500 py-2 px-6 leading-8 transition-colors duration-200 ease-in-out dark:bg-slate-800">
-          <option value="#" selected disabled>all categories</option>
-          <option value="option1">option1</option>
-          <option value="option1">option2</option>
-          <option value="option1">option3</option>
-          <option value="option1">option4</option>
-          <option value="option1">option5</option>
-          <option value="option1">option6</option>
-        </select>
-      </div>
-    </form>
-  </section>
-  <!-- hadi fiha dak l button diyal lfilter o dik la selecte -->
-  <section class="flex flex-row w-full md:hidden" style="margin-top: 55px ;">
-    <div class="flex flex-row m-auto gap-5  w-full" style="margin: 5px 50px;">
-      <button
-        class="flex h-14 w-3/6  justify-center drop-shadow-md bg-custom-green- rounded-md border bg-opacity-50 border-gray-300 text-gray-50 items-center">filter</button>
-
-      <select
-        class="h-14 w-3/6 drop-shadow-md bg-white rounded-md border bg-opacity-50 border-gray-300 focus:ring-1 focus:ring-custom-green focus:bg-transparent focus:border-custom-green text-base outline-none text-gray-500 py-2 px-6 leading-8 transition-colors duration-200 ease-in-out">
-        <option value="#" selected disabled>recomanded </option>
-        <option value="option1">option1</option>
-        <option value="option1">option1</option>
-        <option value="option1">option1</option>
-        <option value="option1">option1</option>
-        <option value="option1">option1</option>
-        <option value="option1">option1</option>
-      </select>
-    </div>
-  </section>
-  <hr>
-  <!-- hadi diyal le texte -->
-  <?php
-  $query_select_all="SELECT id_project, titre, name_cat, name FROM project  JOIN 
-    categores on project.id_cat=categores.id_cat JOIN
-    user on project.id = user.id ";
-
-    //   $sql = "SELECT projects.ProjectTitle,
-    // users.username,
-    // categories.CategoryName,
-    // souscategories.SousCategoryName
-    //     FROM
-    //         projects
-    //     JOIN
-    //         users ON projects.UserID = users.UserID
-    //     JOIN
-    //         categories ON projects.CategoryID = categories.CategoryID
-    //     JOIN
-    //         souscategories ON projects.SousCategoryID = souscategories.SousCategoryID";
-   
-    $result = mysqli_query($conn, $query_select_all);
-    
-    $query = "SELECT name_cat, id_cat FROM categores";
-    $result_cat = mysqli_query($conn, $query);
-
-    $query_user = "SELECT name, id FROM user";
-    $result_user = mysqli_query($conn, $query_user);
-
-    ?>
-    <!-- form of creation the project -->
-  <form action="ajouterpro.php" method="post">
-<div id="modal" tabindex="-1" aria-hidden="true" class="  hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0  max-h-full">
-    <div class="relative p-4 w-full max-w-2xl max-h-full">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <!-- Modal header -->
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                  add projects
-                </h3>
-                <button id="close-modal" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-            </div>
-            <!-- Modal body -->
-            <div class=" md:p-5 space-y-4">
-            <form action="">
-               
-                <div>
-                        <input type="text" name="titre" id="titre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="titre"  >
-                    </div>
-                    <select id="category" name="name_cat"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                    <option selected disabled>selectionner votre categories</option>
-                                     <?php
-
-                                            while ($row = mysqli_fetch_assoc($result_cat)):
-                                               $name_cat=$row['name_cat'];
-                                               $id_cat=$row['id_cat'];
-                                    ?> 
-                                    <option value="<?=$id_cat?>"><?=$name_cat?></option>
-
-                                    <?php endwhile;  ?>
-                                
-                             
-                                </select>
-       
-                                <!-- <select id="category" name="username"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                             
-                                
-                             
-                                </select> -->
-                
-                <div>
-                         <input type="text" name="description" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="description"  >
-                    </div>
-                    
-      <?php 
-     if(isset($_SESSION['id'])):?>
-                    
-                <div>
-                         <input type="text" name="name" id="description" class=" hidden bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500   w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="<?php echo $_SESSION['id']?>"  value="<?php echo $_SESSION['id']?>" >
-                    </div>
-                    <?php endif; ?>
-                    
-                 
-                    </form>
-                  
-
-               
-                
-            </div>
-            <!-- Modal footer -->
-            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-           
-            <input   name="add_project" value="add" type="submit" class="btn btn-success ms-3  text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> 
-            </div>
-        </div>
-    </div>
-</div>
-</form>
-    <!-- //form of creation the offre -->
+<header class="flex bg-gray-50 justify-between p-2 md:py-3 md:px-8 lg:px-10 dark:bg-slate-800">
  
- 
-  <div style=" display: flex; justify-content: space-between;">
-  <?php
-          
-              if( isset($_SESSION['role']) &&
-               $_SESSION['role'] == "user"  ):
-
-    
-                ?>
-  <button
-  id="btnmodal" class="flex h-12 w-12 m-6 justify-center drop-shadow-md bg-custom-green- rounded-md bg-opacity-50 text-gray-50 items-center" style="width: 120px;" >créer un projet</button>
-  <?php endif; ?>
-        <p class="text-xs m-6 dark:text-white"> + <?= count_projects() ?> results</p>
-  </div>
- 
-  <!-- hada dak side bar diyal disck-top  -->
-  <main class="flex flex-row w-1/1 gap-2">
-    <!-- hadi diyal dak side bar li 3la lissr -->
-
-    <!-- hadi diyal les services li 3ndi f lwsste -->
-    <ul id="search_list" class="h-full flex-wrap flex gap-3 text-gray-50 overflow-hidden " style="padding-left: 11px;" >
-      <?php
-      $query = "SELECT id_project, titre,description, status, name_cat, name, image FROM project  JOIN 
-                categores on project.id_cat=categores.id_cat JOIN
-                user on project.id = user.id   ";
-      $result = mysqli_query($conn, $query);
-
-      if(!$result) {
-        die("query failed".mysqli_error($conn));
-      } else {
-        while($row = mysqli_fetch_assoc($result)) {
-          ?>
-          <li
-            class="offer-card h-full mr-4 drop-shadow-md  w-4/5 md:w-2/5 lg:w-72 shrink-0 rounded-xl overflow-hidden hover:drop-shadow-lg hover:border-b-2">
-            <div class="photo bg-cover bg-no-repeat bg-center bg-green-50 h-48">
-              <img src="../images/img1.png" alt="">
-
-            </div>
-
-            <div class="bg-gray-50 dark:bg-zinc-700 w-full min-h-56 flex flex-col justify-between">
-              <div class="flex flex-row p-3 items-center gap-0.5">
-                <h3 class="title text-gray-700 dark:text-slate-200 font-semibold text-lg">
-                  <?php echo $row['titre'] ?>
-                </h3>
-              </div>
-              <?php
-          
-              if( isset($_SESSION['role']) && ($_SESSION['role'] == "admin" || $_SESSION['role'] == "freelancer")):
-
-    
-                ?>
-                <div class="flex flex-col gap-y-3">
-
-                  <div class="specialities flex flex-row flex-wrap my-1 text dark:text-gray-200 px-3">
-
-
-                  <a href="remplissage_offre.php?description=<?php echo $row['description']?>&titre=<?php echo $row['titre']?>&name=<?php echo $row['name']?>&image=<?php echo $row['image']?>" class="px-3 py-1 m-0.5 text-sm bg-custom-green- rounded-md border">
-                      assigned to
-              </a>
-                 
-                </div>
-                <?php
-              endif;
-              ?>
-
-
-                <div class="flex flex-row justify-between text-gray-600 dark:text-slate-200 items-center px-3">
-                  <div class="flex flex-row gap-x-2 items-center">
-                    <img class="freelancer-photo w-10 h-10 rounded-full" src="<?php echo "uploads/".$row['image']?>" alt="offers Freelancer photo">
-                    <div class="flex flex-col">
-                      <p>by <strong class="freelancer-name font-semibold">
-                          <?php echo $row['name'] ?>
-                        </strong></p>
-                      <div class="flex flex-row items-center -mt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13" fill="none">
-                          <path
-                            d="M7.00656 0.800781L5.26756 5.27278H0.851562L4.44256 8.00078L3.20256 12.5088L7.00656 9.95978L10.8116 12.5088L9.57156 8.00078L13.1616 5.27278H8.74656L7.00656 0.800781Z"
-                            fill="#FFB331" />
-                        </svg>
-                        <strong class="rating text-yellow-500 font-semibold mr-1"></strong>(<p
-                          class="reviews text-gray-400">
-                          <?= count_users() ?>
-                        </p>)
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="price text-gray-900 dark:text-slate-100 font-semibold"><?php echo $row['status'] ?></p>
-                  </div>
-                </div>
-
-                <div class="border-t border-gray-200 px-3 py-1 box-content">
-                  <p class="dilevered-days text-xs text-gray-400">description of project :
-                    <?php echo $row['description'] ?>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </li>
-          <?php
-        }
-      } ?>
-    </ul>
-    <!-- hadi diyal douk 3 diyal l3ibat -->
-
-
-    </div>
-
-    </section>
-
-  </main>
-  <footer class="bg-slate-900 pt-5 flex flex-col gap-14">
-    <div class=" opacity-70 self-center m-auto flex   lg:m-0 sm:m-3 ">
-      <span class="bg-custom-green rounded-full p-2">
-        <svg width="47" height="47" viewBox="0 0 47 43" fill="none" xmlns="http://www.w3.org/2000/svg"
+    <div class="flex">
+      <span class="bg-custom-green rounded-full p-2 w-9 h-9 md:w-11 md:h-11 lg:w-14 lg:h-14">
+        <svg class="w-full h-full" viewBox="0 0 47 43" fill="none" xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink">
           <rect width="47" height="43" fill="url(#pattern0)" />
           <defs>
@@ -348,103 +40,213 @@ require("statistiques.php");
           </defs>
         </svg>
       </span>
-      <span class="text-custom-green text-2xl font-bold self-center ">People<span class="text-gray-400">Per</span>Task
+      <span class="text-custom-green text-md md:text-xl lg:text-2xl font-bold self-center">People<span class="text-gray-500 dark:text-white">Per</span>Task
       </span>
     </div>
-    <div class="text-gray-50 flex justify-around">
-      <ul class="flex flex-col gap-2 ">
-        <li class="text-xl font-semibold">Product</li>
-        <li class="text-gray-400">About</li>
-        <li class="text-gray-400">Team</li>
-        <li class="text-gray-400">Careers</li>
-      </ul>
-      <ul class="flex flex-col gap-2">
-        <li class="text-xl font-semibold">Support</li>
-        <li class="text-gray-400">How it works</li>
-        <li class="text-gray-400">Trust & Safety</li>
-        <li class="text-gray-400">Help Center</li>
-      </ul>
-      <ul class="flex flex-col gap-2 ">
-        <li class="text-xl font-semibold">Discover</li>
-        <li class="text-gray-400">Guides</li>
-        <li class="text-gray-400">Stories</li>
-        <li class="text-gray-400">News</li>
-      </ul>
-    </div>
-    <div class="self-center items-center  flex justify-around w-1/3">
-      <svg width="39" height="38" viewBox="0 0 39 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M3.10742 27.0156V19.0371H0.398438V15.9199H3.10742V13.6191C3.10742 12.2832 3.47233 11.2627 4.20215 10.5576C4.93197 9.85254 5.89062 9.5 7.07812 9.5C7.64714 9.5 8.1543 9.51855 8.59961 9.55566C9.04492 9.59277 9.3418 9.61133 9.49023 9.61133V12.3945H7.85742C7.21419 12.3945 6.79362 12.5368 6.5957 12.8213C6.39779 13.1058 6.29883 13.4707 6.29883 13.916V15.9199H9.37891L8.9707 19.0371H6.29883V27.0156H3.10742Z"
-          fill="#ABB2C4" />
-      </svg>
-      <svg width="39" height="38" viewBox="0 0 39 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M15.4277 10.3906H18.3223L11.9395 17.7012L19.4727 27.6094H13.5723L8.9707 21.5977L3.70117 27.6094H0.769531L7.59766 19.8164L0.398438 10.3906H6.44727L10.6035 15.8828L15.4277 10.3906ZM14.3887 25.8652H16.0215L5.55664 12.0605H3.8125L14.3887 25.8652Z"
-          fill="#ABB2C4" />
-      </svg>
-      <svg width="39" height="38" viewBox="0 0 39 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M16.6895 26.7559H13.3125V21.4492C13.3125 20.806 13.2383 20.1628 13.0898 19.5195C12.9414 18.8763 12.4342 18.5547 11.5684 18.5547C10.6777 18.5547 10.1149 18.8454 9.87988 19.4268C9.64486 20.0081 9.52734 20.6452 9.52734 21.3379V26.7559H6.15039V15.8457H9.41602V17.3301H9.45312C9.67578 16.9095 10.0592 16.5137 10.6035 16.1426C11.1478 15.7715 11.8281 15.5859 12.6445 15.5859C14.3516 15.5859 15.4525 16.0807 15.9473 17.0703C16.4421 18.0599 16.6895 19.2969 16.6895 20.7812V26.7559ZM2.32812 14.3613C1.78385 14.3613 1.32617 14.1696 0.955078 13.7861C0.583984 13.4027 0.398438 12.9388 0.398438 12.3945C0.398438 11.875 0.583984 11.4235 0.955078 11.04C1.32617 10.6566 1.78385 10.4648 2.32812 10.4648C2.8724 10.4648 3.33626 10.6566 3.71973 11.04C4.10319 11.4235 4.29492 11.875 4.29492 12.3945C4.29492 12.9388 4.10319 13.4027 3.71973 13.7861C3.33626 14.1696 2.8724 14.3613 2.32812 14.3613ZM4.03516 26.7559H0.658203V15.8457H4.03516V26.7559Z"
-          fill="#ABB2C4" />
-      </svg>
-      <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g clip-path="url(#clip0_28_345)">
-          <path
-            d="M13.8896 15.075C13.8896 15.075 14.0612 14.9033 14.4045 14.5601C14.7477 14.2168 14.9194 13.5601 14.9194 12.5898C14.9194 11.6195 14.5761 10.7911 13.8896 10.1046C13.2031 9.41803 12.3747 9.07477 11.4044 9.07477C10.4341 9.07477 9.60568 9.41803 8.91916 10.1046C8.23264 10.7911 7.88938 11.6195 7.88938 12.5898C7.88938 13.5601 8.23264 14.3885 8.91916 15.075C9.60568 15.7615 10.4341 16.1048 11.4044 16.1048C12.3747 16.1048 13.2031 15.7615 13.8896 15.075ZM15.2352 8.75896C15.2352 8.75896 15.4983 9.02213 16.0247 9.54847C16.551 10.0748 16.8142 11.0886 16.8142 12.5898C16.8142 14.091 16.2878 15.3679 15.2352 16.4206C14.1825 17.4732 12.9056 17.9996 11.4044 17.9996C9.90318 17.9996 8.62624 17.4732 7.57357 16.4206C6.52091 15.3679 5.99457 14.091 5.99457 12.5898C5.99457 11.0886 6.52091 9.81163 7.57357 8.75896C8.62624 7.7063 9.90318 7.17996 11.4044 7.17996C12.9056 7.17996 14.1825 7.7063 15.2352 8.75896ZM17.9263 6.06779C17.9263 6.06779 17.9881 6.12958 18.1117 6.25315C18.2353 6.37673 18.2971 6.61243 18.2971 6.96027C18.2971 7.30811 18.1735 7.60561 17.9263 7.85275C17.6792 8.0999 17.3817 8.22348 17.0339 8.22348C16.686 8.22348 16.3885 8.0999 16.1414 7.85275C15.8942 7.60561 15.7707 7.30811 15.7707 6.96027C15.7707 6.61243 15.8942 6.31494 16.1414 6.06779C16.3885 5.82064 16.686 5.69707 17.0339 5.69707C17.3817 5.69707 17.6792 5.82064 17.9263 6.06779ZM12.4548 3.9327C12.4548 3.9327 12.2957 3.93385 11.9776 3.93614C11.6595 3.93843 11.4685 3.93957 11.4044 3.93957C11.3403 3.93957 10.9902 3.93728 10.354 3.9327C9.71782 3.92813 9.23496 3.92813 8.90543 3.9327C8.5759 3.93728 8.13424 3.95101 7.58044 3.9739C7.02664 3.99678 6.55523 4.04255 6.1662 4.1112C5.77717 4.17985 5.44993 4.26452 5.18447 4.36521C4.72679 4.54829 4.32403 4.81374 3.97619 5.16158C3.62835 5.50942 3.3629 5.91218 3.17982 6.36986C3.07913 6.63532 2.99446 6.96256 2.92581 7.35159C2.85716 7.74062 2.81139 8.21203 2.78851 8.76583C2.76562 9.31962 2.75189 9.76129 2.74731 10.0908C2.74274 10.4204 2.74274 10.9032 2.74731 11.5394C2.75189 12.1756 2.75418 12.5257 2.75418 12.5898C2.75418 12.6538 2.75189 13.004 2.74731 13.6401C2.74274 14.2763 2.74274 14.7592 2.74731 15.0887C2.75189 15.4182 2.76562 15.8599 2.78851 16.4137C2.81139 16.9675 2.85716 17.4389 2.92581 17.8279C2.99446 18.217 3.07913 18.5442 3.17982 18.8097C3.3629 19.2674 3.62835 19.6701 3.97619 20.0179C4.32403 20.3658 4.72679 20.6312 5.18447 20.8143C5.44993 20.915 5.77717 20.9997 6.1662 21.0683C6.55523 21.137 7.02664 21.1828 7.58044 21.2056C8.13424 21.2285 8.5759 21.2422 8.90543 21.2468C9.23496 21.2514 9.71782 21.2514 10.354 21.2468C10.9902 21.2422 11.3403 21.24 11.4044 21.24C11.4685 21.24 11.8186 21.2422 12.4548 21.2468C13.0909 21.2514 13.5738 21.2514 13.9033 21.2468C14.2329 21.2422 14.6745 21.2285 15.2283 21.2056C15.7821 21.1828 16.2535 21.137 16.6425 21.0683C17.0316 20.9997 17.3588 20.915 17.6243 20.8143C18.082 20.6312 18.4847 20.3658 18.8326 20.0179C19.1804 19.6701 19.4459 19.2674 19.6289 18.8097C19.7296 18.5442 19.8143 18.217 19.8829 17.8279C19.9516 17.4389 19.9974 16.9675 20.0202 16.4137C20.0431 15.8599 20.0569 15.4182 20.0614 15.0887C20.066 14.7592 20.066 14.2763 20.0614 13.6401C20.0569 13.004 20.0546 12.6538 20.0546 12.5898C20.0546 12.5257 20.0569 12.1756 20.0614 11.5394C20.066 10.9032 20.066 10.4204 20.0614 10.0908C20.0569 9.76129 20.0431 9.31962 20.0202 8.76583C19.9974 8.21203 19.9516 7.74062 19.8829 7.35159C19.8143 6.96256 19.7296 6.63532 19.6289 6.36986C19.4459 5.91218 19.1804 5.50942 18.8326 5.16158C18.4847 4.81374 18.082 4.54829 17.6243 4.36521C17.3588 4.26452 17.0316 4.17985 16.6425 4.1112C16.2535 4.04255 15.7821 3.99678 15.2283 3.9739C14.6745 3.95101 14.2329 3.93728 13.9033 3.9327C13.5738 3.92813 13.0909 3.92813 12.4548 3.9327ZM21.8807 8.23721C21.9265 9.04273 21.9494 10.4936 21.9494 12.5898C21.9494 14.686 21.9265 16.1368 21.8807 16.9423C21.7892 18.8463 21.2217 20.32 20.1781 21.3635C19.1346 22.4071 17.6609 22.9746 15.7569 23.0661C14.9514 23.1119 13.5006 23.1348 11.4044 23.1348C9.30819 23.1348 7.85734 23.1119 7.05182 23.0661C5.14786 22.9746 3.67412 22.4071 2.63061 21.3635C1.58709 20.32 1.01956 18.8463 0.928027 16.9423C0.882259 16.1368 0.859375 14.686 0.859375 12.5898C0.859375 10.4936 0.882259 9.04273 0.928027 8.23721C1.01956 6.33325 1.58709 4.85951 2.63061 3.816C3.67412 2.77248 5.14786 2.20495 7.05182 2.11342C7.85734 2.06765 9.30819 2.04477 11.4044 2.04477C13.5006 2.04477 14.9514 2.06765 15.7569 2.11342C17.6609 2.20495 19.1346 2.77248 20.1781 3.816C21.2217 4.85951 21.7892 6.33325 21.8807 8.23721Z"
-            fill="#ABB2C4" />
-        </g>
-        <defs>
-          <clipPath id="clip0_28_345">
-            <rect width="21.09" height="25" fill="white" transform="matrix(1 0 0 -1 0.859375 25.0898)" />
-          </clipPath>
-        </defs>
-      </svg>
-    </div>
-    <div class="text-gray-400 m-auto p-4 border-t-2 w-5/6 text-center">&copy; 2023 People Per Task Ltd</div>
-  </footer>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script type="text/javascript" >
-        //garantie que le code jquery a l'interieur de la fonction ne exute entant que le DOM ne charger
-        $(document).ready(function(){
-            $("#hero-field").keyup(function(){
-             
-                var input = $(this).val();
-
-
-                if(input == "") input='all';
-
-                
-
-                $.ajax({
-                      
-                      url:"livesearch.php",
-                      method:"POST",
-                      data:{input:input},
-                      
-
-                      success:function(data){
-                        $("#search_list").html(data);
-                      }
-                  });
-            })
-        })
-    
-                // alert(input);
-
-                //permission de communicer de maniere asynchrone
-                       
-                        //exucuton si la requete ajax a reussi
-       
-        
-    </script>
  
 
- <script src="../javascript/jquery.js"></script>
-    <script src="../javascript/dashboard.js"></script>
-    <script src="../javascript/script.js"></script>
-     <script src="../javascript/dashUser.js"></script>
-  <script src="../javascript/serch.js"></script>
-  <script src="../javascript/projects.js"></script>
-</body>
 
+ 
+
+    <!-- Theme buttons -->
+  
+    <!-- end Theme buttons -->
+
+    <div id="hamberger_btn" class="lg:hidden block self-center mr-4">
+      <svg width="26" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="25.5" y="11" width="25" height="2.00004" rx="1.00002" transform="rotate(180 25.5 11)" fill="#9a9a9a" />
+        <rect x="1" y="0.5" width="24" height="1.00004" rx="0.5" fill="#9a9a9a" stroke="#9a9a9a" />
+        <rect x="0.5" y="18" width="25" height="2.00004" rx="1" fill="#9a9a9a" />
+      </svg>
+    </div>
+  </header>
+ 
+
+  
+<div class="blog-single gray-bg">
+<h1 style="margin-left: 69px;">créer un offer</h1>
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col-lg-8 m-15px-tb">
+                    <article class="article">
+                        <div class="article-img">
+                        <img src="../images/img1.png" alt="photo project" style="width: 800px;" >
+                        </div>
+                        <div class="article-title">
+                            
+                            <h2><?php echo $_GET['titre'] ?><h2>
+                            <div class="media">
+                                <div class="avatar">
+                                    <img  src="<?php echo "uploads/".$_GET['image']?>" title="" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <h5><?php echo $_GET['name'] ?></h5>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="article-content">
+                  <p> <?php echo $_GET['description'] ?></p>
+                        <div class="nav tag-cloud">
+                            <a href="#">Design</a>
+                            <a href="#">Development</a>
+                            <a href="#">Travel</a>
+                            <a href="#">Web Design</a>
+                            <a href="#">Marketing</a>
+                            <a href="#">Research</a>
+                            <a href="#">Managment</a>
+                        </div>
+                        <button id="offer_btn" class="flex h-14 w-1/3  justify-center drop-shadow-md bg-custom-green- rounded-md border bg-opacity-50 border-gray-300 text-gray-50 items-center" style="
+    margin-top: 62px;
+"> créer l'offre</button>
+                    </article>
+                    <div class="contact-form article-comment">
+                        <h4>Leave a Reply</h4>
+                        <form id="contact-form" method="POST">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input name="Name" id="name" placeholder="Name *" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input name="Email" id="email" placeholder="Email *" class="form-control" type="email">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea name="message" id="message" placeholder="Your message *" rows="4" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="send">
+                                        <button class="px-btn theme"><span>Submit</span> <i class="arrow"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4 m-15px-tb blog-aside">
+                    <!-- Author -->
+                    <div class="widget widget-author">
+                        <div class="widget-title">
+                            <h3><?php echo   $_SESSION['name'] ; ?></h3>
+                        </div>
+                        <div class="widget-body">
+                            <div class="media align-items-center">
+                                <div class="avatar">
+                                    <img src="<?php echo "uploads/".$_SESSION['image']?>" title="" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <h6> </h6>
+                                </div>
+                            </div>
+                            <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores</p>
+                        </div>
+                    </div>
+                    <!-- End Author -->
+                    <!-- Trending Post -->
+                    <div class="widget widget-post">
+                        <div class="widget-title">
+                            <h3>Trending Now</h3>
+                        </div>
+                        <div class="widget-body">
+
+                        </div>
+                    </div>
+                    <!-- End Trending Post -->
+            
+                    <!-- widget Tags -->
+                    <div class="widget widget-tags">
+                        <div class="widget-title">
+                            <h3>Latest Tags</h3>
+                        </div>
+                        <div class="widget-body">
+                            <div class="nav tag-cloud">
+                                <a href="#">Design</a>
+                                <a href="#">Development</a>
+                                <a href="#">Travel</a>
+                                <a href="#">Web Design</a>
+                                <a href="#">Marketing</a>
+                                <a href="#">Research</a>
+                                <a href="#">Managment</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End widget Tags -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form action="ajouter_offre.php" method="POST">
+            <div id="offer_modal" tabindex="-1" aria-hidden="true"
+                class=" hidden  overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0  max-h-full">
+                <div class="relative p-4 w-full max-w-2xl max-h-full" style="margin:auto;" >
+                    <!-- Modal content -->
+                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700"  >
+                        <!-- Modal header -->
+                        <div
+                            class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                add offres
+                            </h3>
+                            <button id="close_modal" type="button"
+                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                data-modal-hide="default-modal">
+                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 14 14">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                </svg>
+                                <span class="sr-only">Close modal</span>
+                            </button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class=" md:p-5 space-y-4">
+                            <form action="">
+
+
+                                <div>
+                                    <input type="Amount" name="Amount" id="Amount"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white"
+                                        placeholder="Amount">
+                                </div>
+                                <div>
+                                    <input type="date" name="Deadline" id="Deadline"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white"
+                                        placeholder="Deadline">
+                                </div>
+                                <div>
+                                    <textarea type="date" name="Deadline" id="Deadline"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white"
+                                        placeholder=" message"> message </textarea>
+                             
+
+                                
+
+
+
+
+
+
+
+                        </div>
+                        <!-- Modal footer -->
+                        <div
+                            class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                             
+                            <input name="add_offres" value="add" type="submit"
+                                class="btn btn-success ms-3  text-white  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  ">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+  <!-- Header -->
+  
+  <script src="../javascript/offer.js"></script> 
+
+</body>
 </html>
