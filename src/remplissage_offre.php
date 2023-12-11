@@ -95,39 +95,66 @@ require("statistiques.php");
                             <a href="#">Research</a>
                             <a href="#">Managment</a>
                         </div>
+                        <?php 
+                 if( isset($_SESSION['role']) && ($_SESSION['role'] == "admin" || $_SESSION['role'] == "freelancer")):
+
+     
+     ?>
                         <button id="offer_btn" class="flex h-14 w-1/3  justify-center drop-shadow-md bg-custom-green- rounded-md border bg-opacity-50 border-gray-300 text-gray-50 items-center" style="
     margin-top: 62px;
 "> créer l'offre</button>
+  <?php endif;  ?>
                     </article>
-                    <div class="contact-form article-comment">
-                        <h4>Leave a Reply</h4>
+                    <?php 
+                 if( isset($_SESSION['role']) && $_SESSION['role'] == "user" ):
+
+     
+     ?>
+                    
+                            <?php
+                            $id_project =$_GET['id_project'];
+                            $query_offer = "SELECT Id_offer,Amount, Deadline,message, offre.status, titre, name FROM offre  JOIN 
+                            project on project.id_project=offre.id_project JOIN
+                            user on offre.id = user.id WHERE  project.id_project = $id_project ";
+                            $result = mysqli_query($conn, $query_offer);
+                         while( $row = mysqli_fetch_assoc($result)) { 
+                            $Id_offer =$row["Id_offer"];
+                            ?>
+                            <div class="contact-form article-comment" style="margin: 10px" >
+                        <h4>offres of projects</h4>
                         <form id="contact-form" method="POST">
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input name="Name" id="name" placeholder="Name *" class="form-control" type="text">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input name="Email" id="email" placeholder="Email *" class="form-control" type="email">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <textarea name="message" id="message" placeholder="Your message *" rows="4" class="form-control"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="send">
-                                        <button class="px-btn theme"><span>Submit</span> <i class="arrow"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                                
+                            <p><strong>Le prix d'offer: </strong><?php echo $row['Amount'] ?></p>
+                            <p><strong>la date fin: </strong><?php echo $row['Deadline'] ?></p>
+                            <p><strong>le message d'offer: </strong><?php echo $row['message'] ?></p>
+                            <p><strong>le titre du project: </strong><?php echo $row['titre'] ?></p>
+                            <p><strong>le nom du freelancer: </strong><?php echo $row['name'] ?></p>
+                            <?php
+                             
+                            if($row['status'] =="pending" ):
+                            ?>
+
+                        
+                            <a href="modifier_status.php?Id_offer=<?php echo $Id_offer ; ?>" class="btn flex items-center text-center  p-2 text-gray-900 rounded-lg   "style=" margin:auto;     background-color: #00FF0A;     width: 27%;" >accepter</a>
+
+                            
+                            <?php  endif; ?>
+                            <?php
+                             
+                             if($row['status'] ==="Approved" ):
+                             ?>
+                        <p style="color:green" >il etais accepter</p>
+                        <?php  endif; ?>
+                              
+                         </form>
                     </div>
+               
                 </div>
-                <div class="col-lg-4 m-15px-tb blog-aside">
+                <?php }  ?>
+                <?php  endif; ?>
+            
+                <div class="col-lg-6 m-15px-tb blog-aside">
                     <!-- Author -->
                     <div class="widget widget-author">
                         <div class="widget-title">
@@ -147,14 +174,45 @@ require("statistiques.php");
                     </div>
                     <!-- End Author -->
                     <!-- Trending Post -->
+                    <?php 
+                    if( isset($_SESSION['role']) && $_SESSION['role'] == "freelancer" ):
+                    ?>
                     <div class="widget widget-post">
                         <div class="widget-title">
                             <h3>Trending Now</h3>
                         </div>
                         <div class="widget-body">
+                        <?php
+                            $id_project =$_GET['id_project'];
+
+                             $query_of = "SELECT Id_offer,Amount, Deadline,message, offre.status, titre, name FROM offre  JOIN 
+                            project on project.id_project=offre.id_project JOIN
+                            user on offre.id = user.id WHERE  project.id_project = $id_project AND  offre.status = 'approved' ";
+                            $result = mysqli_query($conn, $query_of);
+                         while( $row = mysqli_fetch_assoc($result)) { 
+                            $Id_offer =$row["Id_offer"];
+                            ?>
+                            <div class="contact-form article-comment" style="margin: 10px" >
+                        <h4>offres of projects</h4>
+                        <form id="contact-form" method="POST">
+                            <div class="row">
+                                
+                            <p><strong>Le prix d'offer: </strong><?php echo $row['Amount'] ?></p>
+                            <p><strong>la date fin: </strong><?php echo $row['Deadline'] ?></p>
+                            <p><strong>le message d'offer: </strong><?php echo $row['message'] ?></p>
+                            <p><strong>le titre du project: </strong><?php echo $row['titre'] ?></p>
+                            <p><strong>le nom du freelancer: </strong><?php echo $row['name'] ?></p>
+                             
 
                         </div>
                     </div>
+                    </div>
+                    </div>
+
+                    <?php }
+                    endif;
+                     ?>
+                    
                     <!-- End Trending Post -->
             
                     <!-- widget Tags -->
@@ -178,7 +236,6 @@ require("statistiques.php");
                 </div>
             </div>
         </div>
-    </div>
 
     <form action="ajouter_offre.php" method="POST">
             <div id="offer_modal" tabindex="-1" aria-hidden="true"
@@ -227,7 +284,7 @@ require("statistiques.php");
                                 <div>
                                     <textarea type="date" name="message" id="Deadline"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white"
-                                        placeholder="message">   </textarea>
+                                        placeholder="message">      </textarea>
                              
 
                                 
@@ -242,9 +299,10 @@ require("statistiques.php");
                         <!-- Modal footer -->
                         <div
                             class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                             
-                            <input name="add_offres" value="add" type="submit"
+ 
+                             <input name="add_offres" value="add" type="submit"
                                 class="btn btn-success ms-3  text-white  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  ">
+                              
                         </div>
                     </div>
                 </div>

@@ -270,7 +270,6 @@ require("statistiques.php");
               </div>
               <?php
           
-              if( isset($_SESSION['role']) && ($_SESSION['role'] == "admin" || $_SESSION['role'] == "freelancer")):
 
     
                 ?>
@@ -284,8 +283,7 @@ require("statistiques.php");
               </a>
                  
                 </div>
-                <?php
-              endif;
+                
               ?>
 
 

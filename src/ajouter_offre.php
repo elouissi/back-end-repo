@@ -27,7 +27,7 @@ if(isset($_POST["add_offres"])){
         die("query failed".mysqli_error());
     }
     else{
-        header('location:remplissage_offre.php?insert_msg=You data has benn added succes');
+        header('location:search.php?insert_msg=You data has benn added succes');
     }
    }
 }
