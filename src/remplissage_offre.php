@@ -171,7 +171,24 @@ require("statistiques.php");
                             </div>
                             <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores</p>
                         </div>
+
+                        
+                        <div class="widget-title">
+                            <h3>skills </h3>
+                        </div>
+                        <div class="widget-body">
+                            <div class="nav tag-cloud">
+                                <a href="#">Design</a>
+                                <a href="#">Development</a>
+                                <a href="#">Travel</a>
+                                <a href="#">Web Design</a>
+                                <a href="#">Marketing</a>
+                                <a href="#">Research</a>
+                                <a href="#">Managment</a>
+                            </div>
+                        </div>
                     </div>
+                     
                     <!-- End Author -->
                     <!-- Trending Post -->
                     <?php 
@@ -193,7 +210,7 @@ require("statistiques.php");
                             $Id_offer =$row["Id_offer"];
                             ?>
                             <div class="contact-form article-comment" style="margin: 10px" >
-                        <h4>offres of projects</h4>
+                        <h4>offres of projects accepted</h4>
                         <form id="contact-form" method="POST">
                             <div class="row">
                                 
@@ -216,22 +233,8 @@ require("statistiques.php");
                     <!-- End Trending Post -->
             
                     <!-- widget Tags -->
-                    <div class="widget widget-tags">
-                        <div class="widget-title">
-                            <h3>Latest Tags</h3>
-                        </div>
-                        <div class="widget-body">
-                            <div class="nav tag-cloud">
-                                <a href="#">Design</a>
-                                <a href="#">Development</a>
-                                <a href="#">Travel</a>
-                                <a href="#">Web Design</a>
-                                <a href="#">Marketing</a>
-                                <a href="#">Research</a>
-                                <a href="#">Managment</a>
-                            </div>
-                        </div>
-                    </div>
+                
+                   
                     <!-- End widget Tags -->
                 </div>
             </div>
