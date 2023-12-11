@@ -248,6 +248,7 @@ require("statistiques.php");
                 categores on project.id_cat=categores.id_cat JOIN
                 user on project.id = user.id   ";
       $result = mysqli_query($conn, $query);
+     
 
       if(!$result) {
         die("query failed".mysqli_error($conn));
@@ -278,7 +279,7 @@ require("statistiques.php");
                   <div class="specialities flex flex-row flex-wrap my-1 text dark:text-gray-200 px-3">
 
 
-                  <a href="remplissage_offre.php?description=<?php echo $row['description']?>&titre=<?php echo $row['titre']?>&name=<?php echo $row['name']?>&image=<?php echo $row['image']?>" class="px-3 py-1 m-0.5 text-sm bg-custom-green- rounded-md border">
+                  <a href="remplissage_offre.php?description=<?php echo $row['description']?>&titre=<?php echo $row['titre']?>&name=<?php echo $row['name']?>&image=<?php echo $row['image']?>&id_project=<?php echo $row['id_project']?>" class="px-3 py-1 m-0.5 text-sm bg-custom-green- rounded-md border">
                       assigned to
               </a>
                  

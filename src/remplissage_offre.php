@@ -219,9 +219,15 @@ require("statistiques.php");
                                         placeholder="Deadline">
                                 </div>
                                 <div>
-                                    <textarea type="date" name="Deadline" id="Deadline"
+                         <input type="text" name="id" id="description" class="  hidden  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500   w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="<?php echo $_SESSION['id']?>"  value="<?php echo $_SESSION['id']?>" >
+                    </div>
+                                <div>
+                         <input type="text" name="id_project" id="id_project" class=" hidden  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500   w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white" placeholder="<?php echo $_GET['id_project']?>"  value="<?php echo $_GET['id_project']?>" >
+                    </div>
+                                <div>
+                                    <textarea type="date" name="message" id="Deadline"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 mb-4 dark:text-white"
-                                        placeholder=" message"> message </textarea>
+                                        placeholder="message">   </textarea>
                              
 
                                 
